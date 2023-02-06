@@ -14,8 +14,17 @@ keymap.set("i", "jk", "<ESC>")
 
 -- ---------- 视觉模式 ---------- ---
 -- 单行或多行移动
-keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+keymap.set("n", "<A-j>", ":m+<CR>==")
+keymap.set("n", "<A-k>", ":m-2<CR>==")
+
+keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
+keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
+
+-- 单行或多行复制
+keymap.set("n", "<A-J>", ":t.<CR>")
+keymap.set("n", "<A-K>", ":t-<CR>")
+keymap.set("v", "<A-J>", ":t '><CR>`[V`]")
+keymap.set("v", "<A-K>", ":t '><CR>gv=gv")
 
 -- ---------- 正常模式 ---------- ---
 -- 窗口
@@ -26,8 +35,8 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- 垂直新增窗口
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- 切换buffer
-keymap.set("n", "<C-L>", ":bnext<CR>")
-keymap.set("n", "<C-H>", ":bprevious<CR>")
+keymap.set("n", "<A-,>", "<C-w>h")
+keymap.set("n", "<A-.>", "<C-w>l")
 
 keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
@@ -37,7 +46,13 @@ keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true }
 -- save
 keymap.set('n', '<C-s>', '<cmd>w<cr>')
 -- diag
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+-- 移动
+keymap.set('i', '<C-a>', '<Esc>I')
+keymap.set('i', '<C-e>', '<Esc>A')
+keymap.set({'n', 'v'}, '<C-a>', '0')
+keymap.set({'n', 'v'}, '<C-e>', '$')
+
 -- ---------- 插件 ---------- ---
 -- nvim-tree
 vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>")
@@ -53,8 +68,8 @@ keymap.set('n', '<leader>l', "<cmd>lua require'hop'.hint_lines()<cr>")
 -- local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 -- Move to previous/next
-keymap.set('n', '<A-j>', '<Cmd>BufferPrevious<CR>', opts)
-keymap.set('n', '<A-k>', '<Cmd>BufferNext<CR>', opts)
+keymap.set('n', '<A-h>', '<Cmd>BufferPrevious<CR>', opts)
+keymap.set('n', '<A-l>', '<Cmd>BufferNext<CR>', opts)
 -- Re-order to previous/next
 keymap.set('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
 keymap.set('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
@@ -75,6 +90,7 @@ keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
 keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 -- Magic buffer-picking mode
 keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
+
 -- telescope 
 local builtin = require('telescope.builtin')
 
@@ -86,25 +102,3 @@ keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnost
 -- fterm
 keymap.set('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>')
 keymap.set('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
--- telescope 
-local buf = vim.lsp.buf
-
-nmap('<leader>rn', buf.rename, '[R]e[n]ame')
-nmap('<leader>ca', buf.code_action, '[C]ode [A]ction')
-
-nmap('gd', buf.definition, '[G]oto [D]efinition')
-nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-nmap('gI', buf.implementation, '[G]oto [I]mplementation')
-nmap('<leader>D', buf.type_definition, 'Type [D]efinition')
-nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-
--- See `:help K` for why this keymap
-nmap('K', buf.hover, 'Hover Documentation')
-nmap('<C-k>', buf.signature_help, 'Signature Documentation')
-
--- Lesser used LSP functionality
-nmap('gD', buf.declaration, '[G]oto [D]eclaration')
-nmap('<leader>wa', buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-nmap('<leader>wr', buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-nmap('<leader>wl', function() print(vim.inspect(buf.list_workspace_folders())) end, '[W]orkspace [L]ist Folders')
