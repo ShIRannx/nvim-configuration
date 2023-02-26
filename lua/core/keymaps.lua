@@ -10,15 +10,15 @@ local nmap = function(keys, func, desc)
 end
 
 -- ---------- 插入模式 ---------- ---
-keymap.set("i", "jk", "<ESC>")
+-- keymap.set("i", "jk", "<ESC>")
 
 -- ---------- 视觉模式 ---------- ---
 -- 单行或多行移动
-keymap.set("n", "<A-j>", ":m+<CR>==")
-keymap.set("n", "<A-k>", ":m-2<CR>==")
+keymap.set("n", "J", ":m+<CR>==")
+keymap.set("n", "K", ":m-2<CR>==")
 
-keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
-keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- 单行或多行复制
 keymap.set("n", "<A-J>", ":t.<CR>")
@@ -35,23 +35,27 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- 垂直新增窗口
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- 切换buffer
-keymap.set("n", "<A-,>", "<C-w>h")
-keymap.set("n", "<A-.>", "<C-w>l")
+keymap.set("n", "<A-h>", "<C-w>h")
+keymap.set("n", "<A-l>", "<C-w>l")
 
-keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+-- keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+--
+-- keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- save
+-- save & quit
 keymap.set('n', '<C-s>', '<cmd>w<cr>')
+keymap.set('i', '<C-s>', '<Esc>:w<cr>')
+
+keymap.set('n', '<C-q>', '<cmd>qa!<cr>')
+
 -- diag
 keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 -- 移动
 keymap.set('i', '<C-a>', '<Esc>I')
 keymap.set('i', '<C-e>', '<Esc>A')
-keymap.set({'n', 'v'}, '<C-a>', '0')
-keymap.set({'n', 'v'}, '<C-e>', '$')
+keymap.set({ 'n', 'v' }, '<C-a>', '0')
+keymap.set({ 'n', 'v' }, '<C-e>', '$')
 
 -- ---------- 插件 ---------- ---
 -- nvim-tree
@@ -68,8 +72,8 @@ keymap.set('n', '<leader>l', "<cmd>lua require'hop'.hint_lines()<cr>")
 -- local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 -- Move to previous/next
-keymap.set('n', '<A-h>', '<Cmd>BufferPrevious<CR>', opts)
-keymap.set('n', '<A-l>', '<Cmd>BufferNext<CR>', opts)
+keymap.set('n', '<A-j>', '<Cmd>BufferPrevious<CR>', opts)
+keymap.set('n', '<A-k>', '<Cmd>BufferNext<CR>', opts)
 -- Re-order to previous/next
 keymap.set('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
 keymap.set('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
@@ -91,7 +95,7 @@ keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 -- Magic buffer-picking mode
 keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 
--- telescope 
+-- telescope
 local builtin = require('telescope.builtin')
 
 keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })

@@ -18,4 +18,3 @@ require("plugins/null-ls")
 require("plugins/aerial")
 require("plugins/hop")
 require("plugins/fidget")
-

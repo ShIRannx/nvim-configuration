@@ -9,6 +9,7 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
+-- opt.smartindent = true
 
 -- 防止包裹
 opt.wrap = false
@@ -37,4 +38,5 @@ opt.signcolumn = "yes"
 opt.undofile = true
 -- opt.background = 'dark'
 -- vim.cmd[[colorscheme dark]]
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format {filter = function(client) return client.name ~= "tsserver" end}]]
+-- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format {filter = function(client) return client.name ~= "tsserver" end}]]
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format() ]]
