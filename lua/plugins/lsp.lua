@@ -18,7 +18,9 @@ require("mason-lspconfig").setup({
         "html",
         "cssls",
         "yamlls",
-        "dockerls"
+        "dockerls",
+        "lua_ls",
+        "docker_compose_language_service"
     },
 })
 
@@ -73,25 +75,18 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local mason_lspconfig = require('mason-lspconfig')
 
 local servers = {
-    -- pylsp = {
-        -- configurationSources = { 'flake8' },
-        -- plugins = {
-        --     pycodestyle = { enabled = false },
-        --     flake8 = { enabled = true, },
-        --     pyflakes = { enabled = false },
-        --     mccabe = { enabled = false },
-        --     autopep8 = { enabled = false },
-        --     yapf = { enabled = false },
-        --     isort = { enabled = true },
-            -- jedi_completion = { enabled = false },
-            -- black = {
-            --     enabled = true,
-            --     cache_config = none,
-            --     line_length = 79,
-            --     -- line_length = 79
-            -- },
-        -- }
-    --},
+    pylsp = {
+        pylsp = {
+            plugins = {
+                ruff = { enabled = true },
+                isort = { enabled = true },
+                black = {
+                    enabled = true,
+                    line_length = 79,
+                },
+            }
+        }
+    },
     html = {
         format = { enable = false }
     }
