@@ -87,8 +87,15 @@ local servers = {
             }
         }
     },
+    yamlls = {
+        yaml = {
+            validate = { enabled = false }
+        }
+    },
     html = {
-        format = { enable = false }
+        html = {
+            format = { enabled = false }
+        }
     }
 }
 
