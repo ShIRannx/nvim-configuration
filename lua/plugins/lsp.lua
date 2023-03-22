@@ -87,6 +87,14 @@ local servers = {
             }
         }
     },
+    tsserver = {
+        javascript = {
+            format = { enable = false }
+        },
+        typescript = {
+            format = { enable = false }
+        }
+    },
     yamlls = {
         yaml = {
             validate = { enabled = false }
