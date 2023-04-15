@@ -10,8 +10,9 @@ require("mason").setup({
 require("mason-lspconfig").setup({
     -- 确保安装，根据需要填写
     ensure_installed = {
-        "tsserver",
+        "gopls",
         "pylsp",
+        "tsserver",
         "angularls",
         "ansiblels",
         "emmet_ls",
@@ -19,7 +20,6 @@ require("mason-lspconfig").setup({
         "cssls",
         "yamlls",
         "dockerls",
-        "lua_ls",
         "docker_compose_language_service"
     },
 })
@@ -80,6 +80,10 @@ local servers = {
             plugins = {
                 ruff = { enabled = true },
                 isort = { enabled = true },
+                rope_autoimport = { enabled = true },
+                jedi_completion = {
+                    fuzzy = true
+                },
                 black = {
                     enabled = true,
                     line_length = 79,
@@ -104,7 +108,7 @@ local servers = {
         html = {
             format = { enabled = false }
         }
-    }
+    },
 }
 
 mason_lspconfig.setup_handlers {
