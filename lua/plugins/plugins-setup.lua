@@ -29,7 +29,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
     use 'Mofiqul/vscode.nvim'
-
+    use "lukas-reineke/indent-blankline.nvim"
     use "numToStr/FTerm.nvim"
     use 'stevearc/aerial.nvim'
     use 'nvim-tree/nvim-web-devicons'
@@ -55,7 +55,7 @@ return require('packer').startup(function(use)
         -- requires = { 'kyazdani42/nvim-web-devicons', opt = true } -- 状态栏图标
     }
     use {
-        'nvim-tree/nvim-tree.lua', -- 文档树
+        'nvim-tree/nvim-tree.lua',         -- 文档树
         requires = {
             'nvim-tree/nvim-web-devicons', -- 文档树图标
         }
@@ -69,7 +69,6 @@ return require('packer').startup(function(use)
         end,
     }
     use 'Vimjas/vim-python-pep8-indent'
-    -- use "p00f/nvim-ts-rainbow" -- 配合treesitter，不同括号颜色区分
     use {
         "neovim/nvim-lspconfig",
         requires = {
@@ -101,8 +100,8 @@ return require('packer').startup(function(use)
     -- use 'mhartington/formatter.nvim'
 
     use 'rhysd/vim-healthcheck'
-    use "numToStr/Comment.nvim" -- gcc和gc注释
-    use "windwp/nvim-autopairs" -- 自动补全括号
+    use "numToStr/Comment.nvim"   -- gcc和gc注释
+    use "windwp/nvim-autopairs"   -- 自动补全括号
 
     use "lewis6991/gitsigns.nvim" -- 左则git提示
 

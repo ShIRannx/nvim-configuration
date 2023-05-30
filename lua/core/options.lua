@@ -18,7 +18,7 @@ opt.wrap = false
 opt.cursorline = true
 
 -- 启用鼠标
-opt.mouse:append("a")
+opt.mouse = "a"
 
 -- 系统剪贴板
 opt.clipboard:append("unnamedplus")
@@ -36,6 +36,9 @@ opt.termguicolors = true
 opt.signcolumn = "yes"
 
 opt.undofile = true
+-- indent-blankline
+-- opt.list = true
+-- opt.listchars:append "space:⋅"
 -- opt.background = 'dark'
 -- vim.cmd[[colorscheme dark]]
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format {filter = function(client) return client.name ~= "tsserver" end}]]

@@ -1,13 +1,13 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
-local nmap = function(keys, func, desc)
-  if desc then
-    desc = 'LSP: ' .. desc
-  end
-
-  vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-end
+-- local nmap = function(keys, func, desc)
+--   if desc then
+--     desc = 'LSP: ' .. desc
+--   end
+--
+--   keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+-- end
 
 -- ---------- 插入模式 ---------- ---
 -- keymap.set("i", "jk", "<ESC>")
@@ -35,8 +35,8 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- 垂直新增窗口
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- 切换buffer
-keymap.set("n", "<A-h>", "<C-w>h")
-keymap.set("n", "<A-l>", "<C-w>l")
+-- keymap.set("n", "<A-h>", "<C-w>h")
+-- keymap.set("n", "<A-l>", "<C-w>l")
 
 -- keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 --

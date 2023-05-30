@@ -23,13 +23,17 @@ require("mason-lspconfig").setup({
     },
 })
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
     -- NOTE: Remember that lua is a real programming language, and as such it is possible
     -- to define small helper and utility functions so you don't have to repeat yourself
     -- many times.
     --
     -- In this case, we create a function that lets us more easily define mappings specific
     -- for LSP related items. It sets the mode, buffer and description for us each time.
+    if client.name == "tsserver" then
+        client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
+    end
+
     local nmap = function(keys, func, desc)
         if desc then
             desc = 'LSP: ' .. desc
@@ -79,7 +83,6 @@ local servers = {
             plugins = {
                 ruff = { enabled = true },
                 isort = { enabled = true },
-                rope_autoimport = { enabled = true },
                 jedi_completion = {
                     fuzzy = true
                 },
@@ -88,14 +91,6 @@ local servers = {
                     line_length = 79,
                 },
             }
-        }
-    },
-    tsserver = {
-        javascript = {
-            format = { enable = false }
-        },
-        typescript = {
-            format = { enable = false }
         }
     },
     yamlls = {
@@ -111,6 +106,7 @@ local servers = {
 }
 
 mason_lspconfig.setup_handlers {
+
     function(server_name)
         require('lspconfig')[server_name].setup {
             capabilities = capabilities,
