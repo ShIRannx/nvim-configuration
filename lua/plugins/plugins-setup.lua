@@ -25,10 +25,26 @@ vim.cmd([[
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    use 'j-hui/fidget.nvim'
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires = {
+            "mfussenegger/nvim-dap"
+        }
+    }
+    use "mfussenegger/nvim-dap"
+
+    use {
+        "mfussenegger/nvim-dap-python",
+        requires = {
+            "mfussenegger/nvim-dap",
+            "rcarriga/nvim-dap-ui",
+        }
+    }
+    use { 'j-hui/fidget.nvim', tag = 'legacy' }
     use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
     use 'Mofiqul/vscode.nvim'
+    -- use "EdenEast/nightfox.nvim"
     use "lukas-reineke/indent-blankline.nvim"
     use "numToStr/FTerm.nvim"
     use 'stevearc/aerial.nvim'

@@ -4,10 +4,11 @@ require("mason").setup({
             package_installed = "✓",
             package_pending = "➜",
             package_uninstalled = "✗"
-        }
+        },
     }
 })
-require("mason-lspconfig").setup({
+local mason_lspconfig = require('mason-lspconfig')
+mason_lspconfig.setup({
     -- 确保安装，根据需要填写
     ensure_installed = {
         "pylsp",
@@ -75,7 +76,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 --Ensure the servers above are installed
-local mason_lspconfig = require('mason-lspconfig')
+-- local mason_lspconfig = require('mason-lspconfig')
 
 local servers = {
     pylsp = {

@@ -1,8 +1,0 @@
-black
-isort
-python-lsp-black
-python-lsp-isort
-python-lsp-jsonrpc
-python-lsp-ruff
-python-lsp-server
-ruff

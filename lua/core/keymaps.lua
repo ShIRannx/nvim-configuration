@@ -99,10 +99,16 @@ keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 local builtin = require('telescope.builtin')
 
 keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+-- keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
 keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
 keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
 keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 -- fterm
 keymap.set('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>')
 keymap.set('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+-- debugger
+keymap.set('n', '<leader>db', '<CMD> DapToggleBreakpoint <CR>')
+keymap.set('n', '<leader>di', require('dap').step_into)
+keymap.set('n', '<leader>dbo', require('dap').step_over)
+keymap.set('n', '<leader>dbO', require('dap').step_out)
+keymap.set('n', '<leader>dS', require('dap-python').test_method)

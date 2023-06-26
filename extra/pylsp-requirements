@@ -1,0 +1,4 @@
+python-lsp-black
+python-lsp-isort
+python-lsp-ruff
+debugpy
