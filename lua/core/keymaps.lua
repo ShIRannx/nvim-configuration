@@ -59,15 +59,27 @@ keymap.set({ 'n', 'v' }, '<C-e>', '$')
 
 -- ---------- 插件 ---------- ---
 -- nvim-tree
-vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>")
+keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>")
 
 -- aerial
 keymap.set('n', '<leader>f', '<cmd>AerialToggle!<cr>')
 keymap.set('n', '{', '<cmd>AerialPrev<CR>', { buffer = bufnr })
 keymap.set('n', '}', '<cmd>AerialNext<CR>', { buffer = bufnr })
 -- hop
-keymap.set('n', 'ss', "<cmd>lua require'hop'.hint_char2()<cr>")
-keymap.set('n', '<leader>l', "<cmd>lua require'hop'.hint_lines()<cr>")
+-- keymap.set('n', 'ss', "<cmd>lua require'hop'.hint_char2()<cr>")
+-- keymap.set('n', '<leader>l', "<cmd>lua require'hop'.hint_lines()<cr>")
+-- flash
+keymap.set({'n', 'x', 'o'}, 'ss', require("flash").jump)
+keymap.set('n', '<leader>l', function()
+    require("flash").jump({
+      search = { mode = "search", max_length = 0 },
+      label = { after = { 0, 0 } },
+      pattern = "^"
+    })
+  end
+)
+keymap.set({'n', 'x', 'o'}, 'sst', require("flash").treesitter)
+
 -- barbar
 -- local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -108,7 +120,7 @@ keymap.set('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>')
 keymap.set('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 -- debugger
 keymap.set('n', '<leader>db', '<CMD> DapToggleBreakpoint <CR>')
-keymap.set('n', '<leader>di', require('dap').step_into)
-keymap.set('n', '<leader>dbo', require('dap').step_over)
-keymap.set('n', '<leader>dbO', require('dap').step_out)
+keymap.set('n', '<leader>dsi', require('dap').step_into)
+keymap.set('n', '<leader>dso', require('dap').step_over)
+keymap.set('n', '<leader>dsO', require('dap').step_out)
 keymap.set('n', '<leader>dS', require('dap').continue)

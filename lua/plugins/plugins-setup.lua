@@ -59,9 +59,14 @@ return require('packer').startup(function(use)
         branch = 'master',
     }
 
+    -- use {
+    --     'phaazon/hop.nvim',
+    --     branch = 'v2', -- optional but strongly recommended
+    -- }
+    --
+
     use {
-        'phaazon/hop.nvim',
-        branch = 'v2', -- optional but strongly recommended
+        'folke/flash.nvim'
     }
 
     use 'tpope/vim-surround'
