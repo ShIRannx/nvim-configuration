@@ -4,8 +4,8 @@ require('nvim-treesitter.configs').setup {
         "css", "rust","yaml" },                                                                                                                 -- one of "all" or a list of languages
 
     highlight = { enable = true },
-    indent = { enable = true },
-    -- indent = { enable = true, disable = { "python", "yaml" } },
+    -- indent = { enable = true },
+    indent = { enable = true, disable = { "python", "yaml" } },
 
     -- 不同括号颜色区分
     -- rainbow = {

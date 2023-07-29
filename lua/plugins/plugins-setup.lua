@@ -89,7 +89,7 @@ return require('packer').startup(function(use)
             ts_update()
         end,
     }
-    -- use 'Vimjas/vim-python-pep8-indent'
+    use 'Vimjas/vim-python-pep8-indent'
     use {
         "neovim/nvim-lspconfig",
         requires = {
