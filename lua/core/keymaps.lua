@@ -78,7 +78,7 @@ keymap.set('n', '<leader>l', function()
     })
   end
 )
-keymap.set({'n', 'x', 'o'}, 'sst', require("flash").treesitter)
+keymap.set({'n', 'x', 'o'}, 'st', require("flash").treesitter)
 
 -- barbar
 -- local map = vim.api.nvim_set_keymap
