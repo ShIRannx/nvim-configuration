@@ -43,3 +43,16 @@ opt.undofile = true
 -- vim.cmd[[colorscheme dark]]
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format {filter = function(client) return client.name ~= "tsserver" end}]]
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format() ]]
+-- wsl clipboard patch
+vim.g.clipboard = {
+   name = 'WslClipboard',
+   copy = {
+      ['+'] = 'clip.exe',
+      ['*'] = 'clip.exe',
+   },
+   paste = {
+      ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().gsub("\\r", ""))',
+      ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().gsub("\\r", ""))',
+   },
+   cache_enabled = 0,
+}
