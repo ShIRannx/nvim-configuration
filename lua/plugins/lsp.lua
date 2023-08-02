@@ -12,15 +12,15 @@ mason_lspconfig.setup({
     -- 确保安装，根据需要填写
     ensure_installed = {
         "pylsp",
-        -- "tsserver",
-        -- "angularls",
-        -- "ansiblels",
-        -- "emmet_ls",
-        -- "html",
-        -- "cssls",
-        -- "yamlls",
-        -- "dockerls",
-        -- "docker_compose_language_service"
+        "tsserver",
+        "angularls",
+        "ansiblels",
+        "emmet_ls",
+        "html",
+        "cssls",
+        "yamlls",
+        "dockerls",
+        "docker_compose_language_service"
     },
 })
 
