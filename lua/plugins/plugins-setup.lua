@@ -121,6 +121,13 @@ return require('packer').startup(function(use)
     -- use 'mhartington/formatter.nvim'
 
     use 'rhysd/vim-healthcheck'
+    use {
+        "folke/noice.nvim",
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        }
+    }
     use "numToStr/Comment.nvim"   -- gcc和gc注释
     use "windwp/nvim-autopairs"   -- 自动补全括号
 

@@ -9,6 +9,7 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
+opt.cmdheight = 0
 -- opt.smartindent = true
 
 -- 防止包裹
