@@ -87,6 +87,7 @@ local servers = {
                 jedi_completion = {
                     fuzzy = true
                 },
+                autopep8 = {enabled=false},
                 black = {
                     enabled = true,
                     line_length = 79,

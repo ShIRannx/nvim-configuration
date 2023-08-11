@@ -59,12 +59,14 @@ return require('packer').startup(function(use)
         branch = 'master',
     }
 
-    -- use {
-    --     'phaazon/hop.nvim',
-    --     branch = 'v2', -- optional but strongly recommended
-    -- }
-    --
-
+    use {
+        "folke/noice.nvim",
+        
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        } 
+    }
     use {
         'folke/flash.nvim'
     }
