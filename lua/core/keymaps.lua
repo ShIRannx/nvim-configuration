@@ -87,8 +87,8 @@ keymap.set({'n', 'x', 'o'}, 'st', require("flash").treesitter)
 -- local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 -- Move to previous/next
-keymap.set('n', '<A-j>', '<Cmd>BufferPrevious<CR>', opts)
-keymap.set('n', '<A-k>', '<Cmd>BufferNext<CR>', opts)
+keymap.set('n', '<A-h>', '<Cmd>BufferPrevious<CR>', opts)
+keymap.set('n', '<A-l>', '<Cmd>BufferNext<CR>', opts)
 -- Re-order to previous/next
 keymap.set('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
 keymap.set('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
