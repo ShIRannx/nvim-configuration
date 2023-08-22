@@ -126,4 +126,8 @@ keymap.set('n', '<leader>dso', dap.step_over)
 keymap.set('n', '<leader>dsO', dap.step_out)
 keymap.set('n', '<leader>dS', dap.continue)
 
+-- luasnip
+local ls = require("luasnip")
+keymap.set({"i", "s"}, "<A-j>", function() ls.jump(1) end, {silent = true})
+keymap.set({"i", "s"}, "<A-k>", function() ls.jump(-1) end, {silent = true})
 
