@@ -119,8 +119,11 @@ keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnost
 keymap.set('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>')
 keymap.set('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 -- debugger
+local dap = require('dap')
 keymap.set('n', '<leader>db', '<CMD> DapToggleBreakpoint <CR>')
-keymap.set('n', '<leader>dsi', require('dap').step_into)
-keymap.set('n', '<leader>dso', require('dap').step_over)
-keymap.set('n', '<leader>dsO', require('dap').step_out)
-keymap.set('n', '<leader>dS', require('dap').continue)
+keymap.set('n', '<leader>dsi', dap.step_into)
+keymap.set('n', '<leader>dso', dap.step_over)
+keymap.set('n', '<leader>dsO', dap.step_out)
+keymap.set('n', '<leader>dS', dap.continue)
+
+
