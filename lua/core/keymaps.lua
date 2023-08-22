@@ -34,6 +34,9 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- 垂直新增窗口
 -- 取消高亮
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
+-- format
+keymap.set("n", "<A-f>", vim.lsp.buf.format)
+
 -- 切换buffer
 -- keymap.set("n", "<A-h>", "<C-w>h")
 -- keymap.set("n", "<A-l>", "<C-w>l")
