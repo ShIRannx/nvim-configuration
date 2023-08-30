@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
         'romgrk/barbar.nvim',
         wants = 'nvim-web-devicons',
     }
+    use 'towolf/vim-helm'
 
     use {
         'mg979/vim-visual-multi',
