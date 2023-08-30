@@ -20,7 +20,7 @@ mason_lspconfig.setup({
         "cssls",
         "yamlls",
         "dockerls",
-        "docker_compose_language_service"
+        -- "docker_compose_language_service"
     },
 })
 
