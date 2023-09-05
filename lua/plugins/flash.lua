@@ -2,7 +2,7 @@ require('flash').setup({
   labels = "asdfghjklqwertyuiopzxcvbnm",
   search = {
     -- search/jump in all windows
-    multi_window = true,
+    multi_window = false,
   },
   modes = {
     -- options used when flash is activated through
@@ -10,7 +10,7 @@ require('flash').setup({
     search = {
       -- when `true`, flash will be activated during regular search by default.
       -- You can always toggle when searching with `require("flash").toggle()`
-      enabled = true,
+      enabled = false,
     }
   }
 })
