@@ -36,7 +36,6 @@ opt.smartcase = true
 opt.termguicolors = true
 opt.signcolumn = "yes"
 
-opt.cmdheight = 0
 opt.undofile = true
 -- indent-blankline
 -- opt.list = true
