@@ -72,16 +72,16 @@ keymap.set('n', '}', '<cmd>AerialNext<CR>', { buffer = bufnr })
 -- keymap.set('n', 'ss', "<cmd>lua require'hop'.hint_char2()<cr>")
 -- keymap.set('n', '<leader>l', "<cmd>lua require'hop'.hint_lines()<cr>")
 -- flash
-keymap.set({'n', 'x', 'o'}, 'ss', require("flash").jump)
+keymap.set({ 'n', 'x', 'o' }, 'ss', require("flash").jump)
 keymap.set('n', '<leader>l', function()
-    require("flash").jump({
-      search = { mode = "search", max_length = 0 },
-      label = { after = { 0, 0 } },
-      pattern = "^"
-    })
-  end
+  require("flash").jump({
+    search = { mode = "search", max_length = 0 },
+    label = { after = { 0, 0 } },
+    pattern = "^"
+  })
+end
 )
-keymap.set({'n', 'x', 'o'}, 'st', require("flash").treesitter)
+keymap.set({ 'n', 'x', 'o' }, 'st', require("flash").treesitter)
 
 -- barbar
 -- local map = vim.api.nvim_set_keymap
@@ -131,6 +131,8 @@ keymap.set('n', '<leader>dS', dap.continue)
 
 -- luasnip
 local ls = require("luasnip")
-keymap.set({"i", "s"}, "<A-j>", function() ls.jump(1) end, {silent = true})
-keymap.set({"i", "s"}, "<A-k>", function() ls.jump(-1) end, {silent = true})
-
+keymap.set({ "i", "s" }, "<c-l>", function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end, { silent = true })
