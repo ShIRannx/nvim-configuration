@@ -56,7 +56,7 @@ local on_attach = function(client, bufnr)
 
     -- See `:help K` for why this keymap
     nmap('gh', buf.hover, 'Hover Documentation')
-    nmap('<C-k>', buf.signature_help, 'Signature Documentation')
+    nmap('<C-h>', buf.signature_help, 'Signature Documentation')
 
     -- Lesser used LSP functionality
     nmap('gD', buf.declaration, '[G]oto [D]eclaration')
@@ -68,7 +68,7 @@ local on_attach = function(client, bufnr)
 
     -- Create a command `:Format` local to the LSP buffer
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-      buf.format()
+        buf.format()
     end, { desc = 'Format current buffer with LSP' })
 end
 
@@ -84,14 +84,13 @@ local servers = {
             plugins = {
                 ruff = { enabled = true },
                 isort = { enabled = true },
-                jedi_completion = {
-                    fuzzy = true
-                },
-                autopep8 = {enabled=false},
+                jedi_completion = { fuzzy = true },
+                autopep8 = { enabled = false },
                 black = {
                     enabled = true,
                     line_length = 79,
                 },
+                pylsp_mypy = { report_progress = true }
             }
         }
     },
