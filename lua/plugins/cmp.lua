@@ -52,16 +52,17 @@ cmp.setup({
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-e>'] = cmp.mapping.abort(), -- 取消补全，esc也可以退出
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
-
         ["<Tab>"] = cmp.mapping(function(fallback)
-            if luasnip.expandable() then
+            if cmp.visible() then
+                cmp.confirm({ select = true })
+            elseif luasnip.expandable() then
                 luasnip.expand()
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
             elseif check_backspace() then
                 fallback()
             else
-                cmp.confirm({ select = true })
+                fallback()
             end
         end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
