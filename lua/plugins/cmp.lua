@@ -52,13 +52,25 @@ cmp.setup({
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-e>'] = cmp.mapping.abort(), -- 取消补全，esc也可以退出
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-j>'] = cmp.mapping(function(fallback)
+            if luasnip.expand_or_jumpable(1) then
+                luasnip.expand_or_jump(1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+        ['<C-k>'] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.confirm({ select = true })
-            elseif luasnip.expandable() then
-                luasnip.expand()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
+            elseif luasnip.choice_active() then
+                luasnip.change_choice(1)
             elseif check_backspace() then
                 fallback()
             else
@@ -66,8 +78,8 @@ cmp.setup({
             end
         end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if luasnip.jumpable(-1) then
-                luasnip.jump(-1)
+            if luasnip.choice_active(-1) then
+                luasnip.change_choice(-1)
             else
                 fallback()
             end
