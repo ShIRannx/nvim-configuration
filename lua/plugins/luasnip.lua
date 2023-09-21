@@ -50,26 +50,33 @@ end
 local function to_main_assign(args)
   local tab = {}
   local a = args[1][1]
-  if #(a) ~= 0 then
-    local cnt = 1
-    for e in string.gmatch(a, " ?([^,]*) ?") do
-      if #e > 0 then
-        table.insert(tab, t(e)) -- r(cnt, tostring(cnt), i(nil, e)))
-        table.insert(tab, t(" = "))
-        table.insert(tab,
-          sn(cnt,
-            c(1,
+  if #(a) == 0 then
+    return sn(nil, tab)
+  end
+
+  local cnt = 1
+  for e in string.gmatch(a, " ?([^,]*) ?") do
+    if #e > 0 then
+      table.insert(tab, t(e)) -- r(cnt, tostring(cnt), i(nil, e)))
+      table.insert(tab, t(" = "))
+      table.insert(tab,
+        sn(cnt,
+          c(1,
+            {
+              -- sn(nil, { t("\""), i(1), t({ "\"", "\t" }) }),
+              { t("\""), r(1, tostring(cnt)), t({ "\"", "\t" }) },
+              { t("("),  r(1, tostring(cnt)), t({ ")", "\t" }) },
+              { t("["),  r(1, tostring(cnt)), t({ "]", "\t" }) },
+              { t("{"),  r(1, tostring(cnt)), t({ "}", "\t" }) },
               {
-                sn(nil, { i(1), t({ "", "\t" }) }),
-                sn(nil, { t("("), i(1), t({ ")", "\t" }) }),
-                sn(nil, { t("["), i(1), t({ "]", "\t" }) }),
-                sn(nil, { t("{"), i(1), t({ "}", "\t" }) }),
-              }
-            )
+                t("ListNode("), r(1, tostring(cnt)), t(","),
+                r(2, "node" .. tostring(cnt)), t({ ")", "\t" })
+              },
+            }
           )
         )
-        cnt = cnt + 1
-      end
+      )
+      cnt = cnt + 1
     end
   end
   return
