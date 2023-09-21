@@ -132,7 +132,7 @@ keymap.set('n', '<leader>dS', dap.continue)
 -- luasnip
 local ls = require("luasnip")
 keymap.set({ "i", "s" }, "<c-l>", function()
-  if ls.choice_active() then
-    ls.change_choice(1)
+  if ls.expandable() then
+    ls.expand()
   end
 end, { silent = true })
