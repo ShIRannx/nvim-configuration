@@ -53,8 +53,8 @@ cmp.setup({
         ['<C-e>'] = cmp.mapping.abort(), -- 取消补全，esc也可以退出
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<C-j>'] = cmp.mapping(function(fallback)
-            if luasnip.expand_or_jumpable(1) then
-                luasnip.expand_or_jump(1)
+            if luasnip.jumpable(1) then
+                luasnip.jump(1)
             else
                 fallback()
             end
