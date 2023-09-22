@@ -40,6 +40,12 @@ return require('packer').startup(function(use)
             "rcarriga/nvim-dap-ui",
         }
     }
+    use {
+        "kristijanhusak/vim-dadbod-ui",
+        requires = {
+            "tpope/vim-dadbod",
+        }
+    }
     use { 'j-hui/fidget.nvim', tag = 'legacy' }
     use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
@@ -108,8 +114,17 @@ return require('packer').startup(function(use)
             "hrsh7th/cmp-nvim-lsp",
             -- "L3MON4D3/LuaSnip", -- snippets引擎，不装这个自动补全会出问题
             "saadparwaiz1/cmp_luasnip",
-            "hrsh7th/cmp-path" -- 文件路径
-        }
+            "hrsh7th/cmp-path", -- 文件路径
+            "kristijanhusak/vim-dadbod-completion",
+        },
+        run = function()
+            vim.api.nvim_create_autocmd("FileType", {
+                desc = "dadbod completion",
+                group = vim.api.nvim_create_augroup("dadbod_cmp", { clear = true }),
+                pattern = { "sql", "mysql", "plsql" },
+                callback = function() require("cmp").setup.buffer { sources = { { name = "vim-dadbod-completion" } } } end,
+            })
+        end
     }
     use "rafamadriz/friendly-snippets"
     use 'jose-elias-alvarez/null-ls.nvim'

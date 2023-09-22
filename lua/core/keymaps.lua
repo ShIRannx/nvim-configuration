@@ -136,3 +136,5 @@ keymap.set({ "i", "s" }, "<c-l>", function()
     ls.expand()
   end
 end, { silent = true })
+-- daddb
+keymap.set('n', '<leader>du', "<Cmd>DBUIToggle<CR>")
