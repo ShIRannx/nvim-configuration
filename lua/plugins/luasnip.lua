@@ -63,8 +63,8 @@ local function to_main_assign(args)
         sn(cnt,
           c(1,
             {
-              -- sn(nil, { t("\""), i(1), t({ "\"", "\t" }) }),
-              { t("\""), r(1, tostring(cnt)), t({ "\"", "\t" }) },
+              { r(1, tostring(cnt)), t({"", "\t"}) },
+              { t('"'), r(1, tostring(cnt)),  t({ '"', "\t" }) },
               { t("("),  r(1, tostring(cnt)), t({ ")", "\t" }) },
               { t("["),  r(1, tostring(cnt)), t({ "]", "\t" }) },
               { t("{"),  r(1, tostring(cnt)), t({ "}", "\t" }) },
