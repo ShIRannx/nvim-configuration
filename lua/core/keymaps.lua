@@ -135,3 +135,6 @@ keymap.set({ "i", "s" }, "<c-l>", function()
 end, { silent = true })
 -- daddb
 keymap.set('n', '<leader>du', "<Cmd>DBUIToggle<CR>")
+-- copilot
+vim.g.copilot_no_tab_map = true
+vim.cmd [[imap <silent><script><expr> <M-a> copilot#Accept("\<CR>")]]

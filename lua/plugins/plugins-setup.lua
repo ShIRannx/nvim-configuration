@@ -24,6 +24,7 @@ vim.cmd([[
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    use 'github/copilot.vim'
 
     use {
         "rcarriga/nvim-dap-ui",
