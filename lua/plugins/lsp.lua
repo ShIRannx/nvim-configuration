@@ -57,7 +57,7 @@ local on_attach = function(client, bufnr)
 
     -- See `:help K` for why this keymap
     nmap('gh', buf.hover, 'Hover Documentation')
-    nmap('<C-h>', buf.signature_help, 'Signature Documentation')
+    nmap('gk', buf.signature_help, 'Signature Documentation')
 
     -- Lesser used LSP functionality
     nmap('gD', buf.declaration, '[G]oto [D]eclaration')
