@@ -95,6 +95,11 @@ local servers = {
             }
         }
     },
+    pyright = {
+        python = {
+            analysis = { typeCheckingMode = 'off', diagnosticMode = 'off'}
+        } 
+    },
     yamlls = {
         yaml = {
             validate = { enabled = false }
