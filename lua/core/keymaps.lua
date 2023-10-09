@@ -124,7 +124,7 @@ keymap.set('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 -- debugger
 local dap = require('dap')
 keymap.set('n', '<leader>db', '<CMD> DapToggleBreakpoint <CR>')
-keymap.set('n', '<leader>sd', dap.continue)
+keymap.set('n', '<leader>d', dap.continue)
 
 -- luasnip
 local ls = require("luasnip")
