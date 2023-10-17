@@ -145,7 +145,7 @@ return require('packer').startup(function(use)
     use "lewis6991/gitsigns.nvim" -- 左则git提示
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1', -- 文件检索
+        'nvim-telescope/telescope.nvim', tag = '0.1.4', -- 文件检索
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
