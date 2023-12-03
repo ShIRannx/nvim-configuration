@@ -52,7 +52,7 @@ return require('packer').startup(function(use)
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
     use 'Mofiqul/vscode.nvim'
     -- use "EdenEast/nightfox.nvim"
-    use {"lukas-reineke/indent-blankline.nvim", tag = "2.*"}
+    use {"lukas-reineke/indent-blankline.nvim", tag = "v2.20.8"}
     use "numToStr/FTerm.nvim"
     use 'stevearc/aerial.nvim'
     use 'nvim-tree/nvim-web-devicons'
