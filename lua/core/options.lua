@@ -44,3 +44,6 @@ opt.undofile = true
 -- vim.cmd[[colorscheme dark]]
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format {filter = function(client) return client.name ~= "tsserver" end}]]
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format() ]]
+vim.g.VM_maps = {
+  ["I BS"] = '<C-h>', -- disable backspace mapping
+}
