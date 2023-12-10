@@ -47,7 +47,7 @@ return require('packer').startup(function(use)
             "tpope/vim-dadbod",
         }
     }
-    use { 'j-hui/fidget.nvim', tag = 'legacy' }
+    use { 'j-hui/fidget.nvim' }
     use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
     use 'Mofiqul/vscode.nvim'
@@ -61,6 +61,7 @@ return require('packer').startup(function(use)
         wants = 'nvim-web-devicons',
     }
     use 'towolf/vim-helm'
+    use 'pearofducks/ansible-vim'
 
     use {
         'mg979/vim-visual-multi',
