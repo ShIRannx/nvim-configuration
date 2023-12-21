@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 -- 行号
--- opt.relativenumber = true
+opt.relativenumber = true
 opt.number = true
 
 -- 缩进
