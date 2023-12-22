@@ -24,7 +24,7 @@ vim.cmd([[
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
-    use 'github/copilot.vim'
+    -- use 'github/copilot.vim'
 
     use {
         "rcarriga/nvim-dap-ui",
@@ -92,7 +92,7 @@ return require('packer').startup(function(use)
             ts_update()
         end,
     }
-    use 'Vimjas/vim-python-pep8-indent'
+    -- use 'Vimjas/vim-python-pep8-indent'
     use {
         "neovim/nvim-lspconfig",
         requires = {

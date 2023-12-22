@@ -18,7 +18,7 @@ require('nvim-treesitter.configs').setup {
 
     highlight = { enable = true },
     -- indent = { enable = true },
-    indent = { enable = true, disable = { "python", "yaml" } },
+    indent = { enable = true, disable = { "yaml" } },
 
     -- 不同括号颜色区分
     -- rainbow = {
