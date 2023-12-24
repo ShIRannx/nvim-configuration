@@ -13,7 +13,8 @@ require('nvim-treesitter.configs').setup {
         "go",
         "css",
         "rust",
-        "yaml"
+        "yaml",
+        "groovy"
     },
 
     highlight = { enable = true },
