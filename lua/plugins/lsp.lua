@@ -102,7 +102,8 @@ local servers = {
     },
     yamlls = {
         yaml = {
-            validate = { enabled = false }
+            validate = false,
+            format = { enable = false }
         }
     },
     html = {
