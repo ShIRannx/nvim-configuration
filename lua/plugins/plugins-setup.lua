@@ -93,6 +93,11 @@ return require('packer').startup(function(use)
         end,
     }
     -- use 'Vimjas/vim-python-pep8-indent'
+    use({
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
+        requires = "nvim-treesitter/nvim-treesitter",
+    })
     use {
         "neovim/nvim-lspconfig",
         requires = {

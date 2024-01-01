@@ -14,11 +14,24 @@ require('nvim-treesitter.configs').setup {
         "css",
         "rust",
         "yaml",
-        "groovy"
+        "groovy",
+        "lua"
     },
 
-    indent = { enable = true },
+    indent = { enable = true, disable = { "yaml" } },
     highlight = { enable = true },
+    textobjects = {
+        select = {
+            enable = true,
+            keymaps = {
+                ['if'] = '@function.inner',
+                ['af'] = '@function.outer',
+                ['ai'] = '@assignment.inner',
+                ['ao'] = '@assignment.outer',
+                ['so'] = '@statement.outer',
+            }
+        }
+    }
 
     -- 不同括号颜色区分
     -- rainbow = {
