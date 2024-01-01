@@ -1,1 +1,1 @@
-au BufRead,BufNewFile Jenkinsfile                set filetype=groovy
+au BufRead,BufNewFile Jenkinsfile*,jenkinsfile*                set filetype=groovy
