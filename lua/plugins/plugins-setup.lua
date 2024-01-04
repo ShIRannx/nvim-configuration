@@ -72,7 +72,11 @@ return require('packer').startup(function(use)
         'folke/flash.nvim'
     }
 
-    use 'tpope/vim-surround'
+    -- use 'tpope/vim-surround'
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    })
 
     use {
         'nvim-lualine/lualine.nvim', -- 状态栏

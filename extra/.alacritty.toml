@@ -1,0 +1,279 @@
+[colors.bright]
+black = "#545454"
+blue = "#569cd6"
+cyan = "#56b6c2"
+green = "#608b4e"
+magenta = "#c678dd"
+red = "#f44747"
+white = "#d4d4d4"
+yellow = "#dcdcaa"
+
+[colors.cursor]
+cursor = "#d4d4d4"
+text = "#d4d4d4"
+
+[colors.normal]
+black = "#1e1e1e"
+blue = "#569cd6"
+cyan = "#56b6c2"
+green = "#608b4e"
+magenta = "#c678dd"
+red = "#f44747"
+white = "#d4d4d4"
+yellow = "#dcdcaa"
+
+[colors.primary]
+background = "#1e1e1e"
+foreground = "#d4d4d4"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 28
+
+[font.normal]
+family = "agave Nerd Font Mono"
+style = "r"
+
+[[keyboard.bindings]]
+chars = "\u001Cx"
+key = "W"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C&"
+key = "W"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001Cd"
+key = "Q"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C^"
+key = "B"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Cp"
+key = "Tab"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001Cn"
+key = "Tab"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001C1"
+key = "Key1"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C2"
+key = "Key2"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C3"
+key = "Key3"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C4"
+key = "Key4"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C5"
+key = "Key5"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C6"
+key = "Key6"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C7"
+key = "Key7"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C8"
+key = "Key8"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C9"
+key = "Key9"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C\""
+key = "D"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C-"
+key = "D"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C%"
+key = "Return"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C|"
+key = "Return"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001Cc"
+key = "T"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001CC"
+key = "T"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001Ch"
+key = "H"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Cj"
+key = "J"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Ck"
+key = "K"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Cl"
+key = "L"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Ch"
+key = "Left"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Cj"
+key = "Down"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Ck"
+key = "Up"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Cl"
+key = "Right"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001CH"
+key = "H"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CJ"
+key = "J"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CK"
+key = "K"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CL"
+key = "L"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CH"
+key = "Left"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CJ"
+key = "Down"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CK"
+key = "Up"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CL"
+key = "Right"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CS"
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C:"
+key = "I"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001CI"
+key = "I"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CR"
+key = "R"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Cz"
+key = "Z"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C "
+key = "Z"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C,"
+key = "Comma"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = """
+\u001B:w
+"""
+key = "S"
+mods = "Command"
+
+[shell]
+args = ["-l", "-c", "tmux new-session -A -D -s main"]
+program = "/bin/zsh"
+
+[window]
+decorations = "none"
+dynamic_padding = false
+opacity = 1
+option_as_alt = "Both"
+startup_mode = "Fullscreen"
+
+[window.padding]
+x = 0
+y = 0
