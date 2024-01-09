@@ -138,7 +138,7 @@ return require('packer').startup(function(use)
         end
     }
     use "rafamadriz/friendly-snippets"
-    use 'jose-elias-alvarez/null-ls.nvim'
+    use "nvimtools/none-ls.nvim"
     -- use 'mhartington/formatter.nvim'
 
     use 'rhysd/vim-healthcheck'
