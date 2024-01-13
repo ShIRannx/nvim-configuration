@@ -68,9 +68,14 @@ return {
             { '<A-i>',  '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', mode = 't' },
         }
     },
-    { 
+    {
         'stevearc/aerial.nvim',
-        event = "VeryLazy",
+        opts = {},
+        -- Optional dependencies
+        dependencies = {
+           "nvim-treesitter/nvim-treesitter",
+           "nvim-tree/nvim-web-devicons"
+        },
         keys = {
             {'<leader>f', '<cmd>AerialToggle<cr>'},
             {'{',  '<cmd>AerialPrev<CR>', { buffer = bufnr } },
@@ -97,7 +102,8 @@ return {
     {
         "kylechui/nvim-surround",
         version = "*", -- for stability; omit to use `main` branch for the latest features
-        event = "VeryLazy"
+        event = "VeryLazy",
+        config = function() require("nvim-surround").setup() end
     },
 
     { "christoomey/vim-tmux-navigator", event = "VeryLazy"},
