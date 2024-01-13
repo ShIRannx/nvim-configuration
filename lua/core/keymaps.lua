@@ -64,25 +64,6 @@ keymap.set({ 'n', 'v' }, '<C-e>', '$')
 -- nvim-tree
 keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>")
 
--- aerial
-keymap.set('n', '<leader>f', '<cmd>AerialToggle!<cr>')
-keymap.set('n', '{', '<cmd>AerialPrev<CR>', { buffer = bufnr })
-keymap.set('n', '}', '<cmd>AerialNext<CR>', { buffer = bufnr })
--- hop
--- keymap.set('n', 'ss', "<cmd>lua require'hop'.hint_char2()<cr>")
--- keymap.set('n', '<leader>l', "<cmd>lua require'hop'.hint_lines()<cr>")
--- flash
-keymap.set({ 'n', 'x', 'o' }, 'ss', require("flash").jump)
-keymap.set('n', '<leader>l', function()
-  require("flash").jump({
-    search = { mode = "search", max_length = 0 },
-    label = { after = { 0, 0 } },
-    pattern = "^"
-  })
-end
-)
-keymap.set({ 'n', 'x', 'o' }, 'st', require("flash").treesitter)
-
 -- barbar
 -- local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -110,31 +91,3 @@ keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 -- Magic buffer-picking mode
 keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 
--- telescope
-local builtin = require('telescope.builtin')
-
-keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
--- keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
--- fterm
-keymap.set('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>')
-keymap.set('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
--- debugger
-local dap = require('dap')
-keymap.set('n', '<leader>db', '<CMD> DapToggleBreakpoint <CR>')
-keymap.set('n', '<leader>d', dap.continue)
-
--- luasnip
-local ls = require("luasnip")
-keymap.set({ "i", "s" }, "<c-l>", function()
-  if ls.expandable() then
-    ls.expand()
-  end
-end, { silent = true })
--- daddb
-keymap.set('n', '<leader>du', "<Cmd>DBUIToggle<CR>")
--- copilot
-vim.g.copilot_no_tab_map = true
-vim.cmd [[imap <silent><script><expr> <M-a> copilot#Accept("\<CR>")]]

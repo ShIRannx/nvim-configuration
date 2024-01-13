@@ -1,5 +1,4 @@
-require('nvim-treesitter.configs').setup {
-    -- 添加不同语言
+local config = {
     ensure_installed = {
         "c",
         "bash",
@@ -18,7 +17,7 @@ require('nvim-treesitter.configs').setup {
         "groovy",
         "lua"
     },
-
+    sync_install = false,
     indent = { enable = true, disable = { "yaml" } },
     highlight = { enable = true },
     textobjects = {
@@ -49,4 +48,13 @@ require('nvim-treesitter.configs').setup {
     -- max_file_lines = nil,
     -- }
 }
-vim.treesitter.language.register("yaml", "yaml.ansible")
+
+return {
+    'nvim-treesitter/nvim-treesitter',
+    build = ":TSUpdate",
+    config = function()
+        local treesitter = require("nvim-treesitter.configs")
+        treesitter.setup(config)
+        vim.treesitter.language.register("yaml", "yaml.ansible")
+    end,
+}
