@@ -121,9 +121,14 @@ end
 
 return {
     "L3MON4D3/LuaSnip",
+    event = "VeryLazy",
+    dependencies = {
+      "rafamadriz/friendly-snippets" 
+    },
     -- follow latest release.
     version = "v2.*",
     -- install jsregexp (optional!:).
     build = "make install_jsregexp",
     config = config
+    
 }

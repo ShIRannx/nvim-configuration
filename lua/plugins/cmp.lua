@@ -1,6 +1,17 @@
 local config = function() 
     local cmp = require("cmp")
+    local types = require("cmp.types")
     local luasnip = require("luasnip")
+
+    cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
+
+    require("luasnip.loaders.from_vscode").lazy_load()
+
+    local function deprioritize_snippet(entry1, entry2)
+        if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then return false end
+        if entry2:get_kind() == types.lsp.CompletionItemKind.Snippet then return true end
+    end
+
     return {
         snippet = {
             expand = function(args)

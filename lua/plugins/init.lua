@@ -49,14 +49,11 @@ return {
     {
         "kristijanhusak/vim-dadbod-ui",
         event = "VeryLazy",
-        dependencies = {
-            "tpope/vim-dadbod",
-        },
+        dependencies = { "tpope/vim-dadbod" },
         keys = { { '<leader>du', "<Cmd>DBUIToggle<CR>" } }
     },
     { 'j-hui/fidget.nvim' },
     { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', event = "VeryLazy"},
 
     {
         "lukas-reineke/indent-blankline.nvim", 
@@ -105,10 +102,6 @@ return {
 
     { "christoomey/vim-tmux-navigator", event = "VeryLazy"},
     {
-        "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy",
-        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-treesitter" },
-    },
-    {
         "williamboman/mason.nvim",
         opts = {
             ui = {
@@ -129,9 +122,11 @@ return {
             "williamboman/mason-lspconfig.nvim",
         }
     },
-    { "rafamadriz/friendly-snippets", event = "VeryLazy"},
-    { 'rhysd/vim-healthcheck', event = "VeryLazy"},
-    { "numToStr/Comment.nvim", event = "VeryLazy"}
+    { 
+        "numToStr/Comment.nvim", event = "VeryLazy",
+        config = function() require('Comment').setup() end
+    },
+    { 'rhysd/vim-healthcheck', event = "VeryLazy" },
 }
 
 -- require("core.keymaps")
