@@ -6,15 +6,15 @@ local line_select = function()
     pattern = "^"
   })
 end
-local jump = function() require("flash").jump() end
-local block = function() require("flash").treesitter() end
 
 return {
   'folke/flash.nvim',
   keys = {
     { '<leader>l', line_select },
-    { 'ss', jump, mode = { 'n', 'x', 'o' } },
-    { 'st', block, mode = { 'n', 'x', 'o' } },
+    { 's', function() require("flash").jump() end, mode = { 'n', 'x', 'o' } },
+    { 'S', function() require("flash").treesitter() end, mode = { 'n', 'x', 'o' } },
+    { "r", function() require("flash").remote() end, desc = "Remote Flash", mode = "o" },
+    { "R", function() require("flash").treesitter_search() end, desc = "Treesitter Search", mode = { "o", "x" } },
   },
   opts = {
     labels = "asdfghjklqwertyuiopzxcvbnm",
