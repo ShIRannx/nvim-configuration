@@ -17,10 +17,13 @@ end
 return {
   'nvim-telescope/telescope.nvim', 
   keys = {
+    {'gr', util.telescope('lsp_references'), '[G]oto [R]eferences'},
     {'<leader>sf', util.telescope('find_files'), desc = '[S]earch [F]iles' },
-    {'<leader>sw', util.telescope('grep_string'), desc = '[S]earch current [W]ord' },
     {'<leader>sg', util.telescope('live_grep'), desc = '[S]earch by [G]rep' },
-    {'<leader>sd', util.telescope('diagnostics'), desc = '[S]earch [D]iagnostics' }
+    {'<leader>ds', util.telescope('lsp_document_symbols'), '[D]ocument [S]ymbols'},
+    {'<leader>sd', util.telescope('diagnostics'), desc = '[S]earch [D]iagnostics' },
+    {'<leader>sw', util.telescope('grep_string'), desc = '[S]earch current [W]ord' },
+    {'<leader>ws', util.telescope('lsp_dynamic_workspace_symbols'), '[W]orkspace [S]ymbols'},
   },
   opts = config,
   version = '0.1.5',

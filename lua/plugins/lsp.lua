@@ -16,7 +16,6 @@ local config = function()
         },
     })
 
-    local ts_builtin = require('telescope.builtin')
     local on_attach = function(client, bufnr)
         -- NOTE: Remember that lua is a real programming language, and as such it is possible
         -- to define small helper and utility functions so you don't have to repeat yourself
@@ -41,11 +40,8 @@ local config = function()
         nmap('<leader>ca', buf.code_action, '[C]ode [A]ction')
 
         nmap('gd', buf.definition, '[G]oto [D]efinition')
-        nmap('gr', ts_builtin.lsp_references, '[G]oto [R]eferences')
         nmap('gI', buf.implementation, '[G]oto [I]mplementation')
         nmap('<leader>D', buf.type_definition, 'Type [D]efinition')
-        nmap('<leader>ds', ts_builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
-        nmap('<leader>ws', ts_builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
         -- See `:help K` for why this keymap
         nmap('gh', buf.hover, 'Hover Documentation')
