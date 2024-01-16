@@ -114,5 +114,6 @@ local config = function()
 end
 return {
     "williamboman/mason-lspconfig.nvim",
+    event = "VeryLazy",
     config = config
 }

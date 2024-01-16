@@ -2,48 +2,15 @@ require('core.keymaps')
 require('core.options')
 return {
     {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        build = ":Copilot auth",
+        "RRethy/vim-illuminate",
         opts = {
-          suggestion = { enabled = false },
-          panel = { enabled = false },
-          filetypes = {
-            markdown = true,
-            help = true,
-          },
+            delay = 200,
+            large_file_overrides = {
+                providers = { "lsp" },
+            },
         },
-    },
-    {
-        "rcarriga/nvim-dap-ui",
-        event = "VeryLazy",
-        keys = {
-            {'<leader>db', '<CMD> DapToggleBreakpoint <CR>'},
-            {'<leader>d', function() require('dap').continue() end },
-        },
-        dependencies = {
-            "mfussenegger/nvim-dap"
-        },
-        config = function()
-            local dap = require("dap")
-            local dapui = require("dapui")
-            dapui.setup()
-            dap.listeners.after.event_initialized["dapui_config"] = dapui.open
-            dap.listeners.before.event_terminated["dapui_config"] = dapui.close
-            dap.listeners.before.event_exited["dapui_config"] = dapui.close
-        end
-    },
-    { "mfussenegger/nvim-dap", event = "VeryLazy" },
-    {
-        "mfussenegger/nvim-dap-python",
-        event = "VeryLazy",
-        dependencies = {
-            "mfussenegger/nvim-dap",
-            "rcarriga/nvim-dap-ui",
-        },
-        config = function()
-            local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-            require("dap-python").setup(path)
+        config = function(_, opts)
+            require("illuminate").configure(opts)
         end
     },
     {
@@ -52,8 +19,8 @@ return {
         dependencies = { "tpope/vim-dadbod" },
         keys = { { '<leader>du', "<Cmd>DBUIToggle<CR>" } }
     },
-    { 'j-hui/fidget.nvim' },
-    { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
+    { 'j-hui/fidget.nvim', event = "VeryLazy" },
+    { 'tpope/vim-sleuth', event = "VeryLazy"}, -- Detect tabstop and shiftwidth automatically
 
     {
         "lukas-reineke/indent-blankline.nvim", 
@@ -70,11 +37,11 @@ return {
     },
     {
         'stevearc/aerial.nvim',
+        event = 'VeryLazy',
         opts = {},
         -- Optional dependencies
         dependencies = {
-           "nvim-treesitter/nvim-treesitter",
-           "nvim-tree/nvim-web-devicons"
+            "nvim-treesitter/nvim-treesitter"
         },
         keys = {
             {'<leader>f', '<cmd>AerialToggle<cr>'},
@@ -82,12 +49,10 @@ return {
             {'}',  '<cmd>AerialNext<CR>', { buffer = bufnr } },
         }
     },
-    {
-        'romgrk/barbar.nvim',
-        dependencies = 'nvim-web-devicons',
-    },
-    { 'towolf/vim-helm', event = "VeryLazy" },
-    { 'pearofducks/ansible-vim' , event = "VeryLazy" },
+    { 'nvim-tree/nvim-web-devicons', lazy = true },
+    { 'romgrk/barbar.nvim' },
+    { 'towolf/vim-helm', lazy = true, ft = { "helm" } },
+    { 'pearofducks/ansible-vim', lazy = true, ft = { "yaml.ansible" } },
     {
         'mg979/vim-visual-multi',
         event = "VeryLazy",
@@ -106,10 +71,13 @@ return {
         config = function() require("nvim-surround").setup() end
     },
 
-    { "christoomey/vim-tmux-navigator", event = "VeryLazy"},
+    { "christoomey/vim-tmux-navigator", event = "VeryLazy" },
     {
         "williamboman/mason.nvim",
         opts = {
+            ensure_installed = {
+                'prettier',
+            },
             ui = {
                 icons = {
                     package_installed = "✓",
@@ -121,6 +89,7 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
+        event = "VeryLazy",
         dependencies = {
             'j-hui/fidget.nvim',
             'folke/neodev.nvim',

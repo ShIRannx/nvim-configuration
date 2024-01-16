@@ -5,8 +5,6 @@ local config = function()
 
     cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 
-    require("luasnip.loaders.from_vscode").lazy_load()
-
     local function deprioritize_snippet(entry1, entry2)
         if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then return false end
         if entry2:get_kind() == types.lsp.CompletionItemKind.Snippet then return true end
@@ -72,10 +70,10 @@ local config = function()
             end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
-            { name = "copilot", group_index = 1, priority = 100},
             { name = 'nvim_lsp' },
             { name = 'luasnip' },
             { name = 'path' },
+        }, {
             { name = 'buffer' }
         })
     }
@@ -87,25 +85,10 @@ return {
     event = "InsertEnter",
     dependencies = {
         "hrsh7th/cmp-path",
+        "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-nvim-lsp",
         "saadparwaiz1/cmp_luasnip",
         "kristijanhusak/vim-dadbod-completion",
-        {
-            "zbirenbaum/copilot-cmp",
-            dependencies = "copilot.lua",
-            opts = {},
-            config = function(_, opts)
-              local copilot_cmp = require("copilot_cmp")
-              copilot_cmp.setup(opts)
-              -- attach cmp source whenever copilot attaches
-              -- fixes lazy-loading issues with the copilot cmp source
-              require("util").lsp.on_attach(function(client)
-                if client.name == "copilot" then
-                  copilot_cmp._on_insert_enter({})
-                end
-              end)
-            end,
-        },
     },
     build = function()
         vim.api.nvim_create_autocmd("FileType", {

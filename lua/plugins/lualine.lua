@@ -20,7 +20,6 @@ local config = function()
 end
 return {
   "nvim-lualine/lualine.nvim", 
-  event = "VeryLazy",
   init = function()
       vim.g.lualine_laststatus = vim.o.laststatus
       if vim.fn.argc(-1) > 0 then
@@ -31,9 +30,6 @@ return {
         vim.o.laststatus = 0
       end
   end,
-  dependencies = { 
-    "folke/noice.nvim",
-    "nvim-tree/nvim-web-devicons",
-  },
+  dependencies = { "folke/noice.nvim" },
   opts = config
 }

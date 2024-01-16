@@ -31,6 +31,10 @@ keymap.set("v", "<A-K>", ":t '><CR>gv=gv")
 keymap.set("n", "<leader>sv", "<C-w>v") -- 水平新增窗口
 keymap.set("n", "<leader>sh", "<C-w>s") -- 垂直新增窗口
 
+-- terminal
+
+keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
 -- 取消高亮
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
@@ -85,7 +89,7 @@ keymap.set('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
 keymap.set('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
 keymap.set('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
 -- Pin/unpin buffer
-keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
+-- keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
 -- Close buffer
 keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 -- Magic buffer-picking mode

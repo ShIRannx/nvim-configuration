@@ -27,9 +27,6 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 return {
   'nvim-tree/nvim-tree.lua',         
-  dependencies = {
-    'nvim-tree/nvim-web-devicons', 
-  },
   opts = {
     view = {
       side = 'right',

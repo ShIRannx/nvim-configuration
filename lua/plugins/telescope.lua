@@ -16,6 +16,7 @@ end
 
 return {
   'nvim-telescope/telescope.nvim', 
+  event = "VeryLazy",
   keys = {
     {'gr', util.telescope('lsp_references'), '[G]oto [R]eferences'},
     {'<leader>sf', util.telescope('find_files'), desc = '[S]earch [F]iles' },
@@ -29,6 +30,6 @@ return {
   version = '0.1.5',
   dependencies = { 
     'nvim-lua/plenary.nvim',
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', event = "VeryLazy"}
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make'}
   },
 }
