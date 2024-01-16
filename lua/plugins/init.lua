@@ -72,31 +72,6 @@ return {
     },
 
     { "christoomey/vim-tmux-navigator", event = "VeryLazy" },
-    {
-        "williamboman/mason.nvim",
-        opts = {
-            ensure_installed = {
-                'prettier',
-            },
-            ui = {
-                icons = {
-                    package_installed = "✓",
-                    package_pending = "➜",
-                    package_uninstalled = "✗"
-                },
-            }
-        }
-    },
-    {
-        "neovim/nvim-lspconfig",
-        event = "VeryLazy",
-        dependencies = {
-            'j-hui/fidget.nvim',
-            'folke/neodev.nvim',
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-        }
-    },
     { 
         "numToStr/Comment.nvim", event = "VeryLazy",
         config = function() require('Comment').setup() end

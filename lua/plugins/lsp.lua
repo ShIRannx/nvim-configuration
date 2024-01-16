@@ -113,7 +113,17 @@ local config = function()
     }
 end
 return {
-    "williamboman/mason-lspconfig.nvim",
-    event = "VeryLazy",
-    config = config
+    {
+        "neovim/nvim-lspconfig",
+        event = "InsertEnter",
+        dependencies = {
+            'folke/neodev.nvim',
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+        },
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        config = config
+    },
 }
