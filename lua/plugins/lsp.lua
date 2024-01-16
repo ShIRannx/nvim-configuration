@@ -115,7 +115,7 @@ end
 return {
     {
         "neovim/nvim-lspconfig",
-        event = "InsertEnter",
+        event="VeryLazy",
         dependencies = {
             'folke/neodev.nvim',
             "williamboman/mason.nvim",
