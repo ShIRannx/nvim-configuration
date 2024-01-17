@@ -3,7 +3,7 @@ local util = require("util")
 return {
   {
     'stevearc/aerial.nvim',
-    event = 'VeryLazy',
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     opts = {},
     -- Optional dependencies
     dependencies = {

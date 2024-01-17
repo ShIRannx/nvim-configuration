@@ -3,7 +3,7 @@ require('core.options')
 return {
     {
         "RRethy/vim-illuminate",
-        event = "VeryLazy",
+        event = { "BufReadPost", "BufNewFile", "BufWritePre" },
         opts = {
             delay = 200,
             large_file_overrides = {
@@ -25,6 +25,7 @@ return {
 
     {
         "lukas-reineke/indent-blankline.nvim", 
+        event = { "BufReadPost", "BufNewFile", "BufWritePre" },
         version = "v2.20.8", 
         opts = { show_current_context = true }
     },

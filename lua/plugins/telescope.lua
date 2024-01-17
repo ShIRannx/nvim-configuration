@@ -2,7 +2,6 @@ local util = require("util")
 
 return {
   'nvim-telescope/telescope.nvim', 
-  event = "VeryLazy",
   keys = {
     {'gr', util.telescope('lsp_references'), '[G]oto [R]eferences'},
     {'<leader>sf', util.telescope('find_files'), desc = '[S]earch [F]iles' },

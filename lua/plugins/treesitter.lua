@@ -51,6 +51,7 @@ local config = {
 
 return {
     'nvim-treesitter/nvim-treesitter',
+    event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
     build = ":TSUpdate",
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects"
