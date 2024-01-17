@@ -35,21 +35,6 @@ return {
             { '<A-i>',  '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', mode = 't' },
         }
     },
-    {
-        'stevearc/aerial.nvim',
-        event = 'VeryLazy',
-        opts = {},
-        -- Optional dependencies
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter"
-        },
-        keys = {
-            {'<leader>f', '<cmd>AerialToggle<cr>'},
-            {'{',  '<cmd>AerialPrev<CR>', { buffer = bufnr } },
-            {'}',  '<cmd>AerialNext<CR>', { buffer = bufnr } },
-        }
-    },
-    { 'nvim-tree/nvim-web-devicons', lazy = true },
     { 'romgrk/barbar.nvim' },
     { 'towolf/vim-helm', lazy = true, ft = { "helm" } },
     { 'pearofducks/ansible-vim', lazy = true, ft = { "yaml.ansible" } },

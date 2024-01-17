@@ -1,19 +1,5 @@
 local util = require("util")
 
-local config = function ()
-  local tele = require("telescope")
-  tele.load_extension('fzf')
-  return {
-    defaults = {
-      layout_config = {
-        horizontal = {
-          preview_cutoff = 0,
-        },
-      },
-    },
-  }
-end
-
 return {
   'nvim-telescope/telescope.nvim', 
   event = "VeryLazy",
@@ -26,10 +12,27 @@ return {
     {'<leader>sw', util.telescope('grep_string'), desc = '[S]earch current [W]ord' },
     {'<leader>ws', util.telescope('lsp_dynamic_workspace_symbols'), '[W]orkspace [S]ymbols'},
   },
-  opts = config,
+  opts = {
+    defaults = {
+      layout_config = {
+        horizontal = {
+          preview_cutoff = 0,
+        },
+      },
+    },
+  },
   version = '0.1.5',
   dependencies = { 
     'nvim-lua/plenary.nvim',
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make'}
+    { 
+      'nvim-telescope/telescope-fzf-native.nvim', 
+      build = 'make',
+      enabled = vim.fn.executable("make") == 1,
+      config = function()
+        util.on_load("telescope.nvim", function()
+          require("telescope").load_extension("fzf")
+        end)
+      end
+    }
   },
 }
