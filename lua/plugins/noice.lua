@@ -1,5 +1,6 @@
 return {
   "folke/noice.nvim",
+  event = "VeryLazy",
   keys = {
       { "<leader>nd", function() require("noice").cmd("dismiss") end, desc = "Dismiss All" },
       { "<c-f>", function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, silent = true, expr = true, desc = "Scroll forward", mode = {"i", "n", "s"} },
