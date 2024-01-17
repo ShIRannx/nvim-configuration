@@ -11,7 +11,7 @@ return {
         { 'nvim-tree/nvim-web-devicons', lazy = true },
     },
     keys = {
-        {'<leader>f', '<cmd>AerialToggle<cr>'},
+        {'<leader>cs', '<cmd>AerialToggle<cr>'},
         {'{',  '<cmd>AerialPrev<CR>', { buffer = bufnr } },
         {'}',  '<cmd>AerialNext<CR>', { buffer = bufnr } },
     }
@@ -21,7 +21,7 @@ return {
     optional = true,
     keys = {
       {
-        "<leader>F",
+        "<leader>ss",
         "<cmd>Telescope aerial<cr>",
         desc = "Goto Symbol (Aerial)",
       },
