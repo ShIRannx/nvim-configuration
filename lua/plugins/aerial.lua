@@ -18,6 +18,7 @@ return {
   },
   {
     'nvim-telescope/telescope.nvim',
+    optional = true,
     keys = {
       {
         "<leader>F",

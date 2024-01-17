@@ -3,6 +3,7 @@ require('core.options')
 return {
     {
         "RRethy/vim-illuminate",
+        event = "VeryLazy",
         opts = {
             delay = 200,
             large_file_overrides = {
