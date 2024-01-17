@@ -1,4 +1,3 @@
-local util = require("lazy.util")
 local line_select = function()
   require("flash").jump({
     search = { mode = "search", max_length = 0 },

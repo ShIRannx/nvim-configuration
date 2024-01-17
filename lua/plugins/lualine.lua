@@ -1,3 +1,5 @@
+local util = require("util")
+
 return {
   "nvim-lualine/lualine.nvim", 
   event = "VeryLazy",
@@ -20,10 +22,28 @@ return {
     },
     sections = {
       lualine_x = {
+        -- stylua: ignore
         {
-          color = { fg = "#d4d4d4" },
+          function() return require("noice").api.status.command.get() end,
+          cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+          color = util.ui.fg("Normal"),
+        },
+        -- stylua: ignore
+        {
           function() return require("noice").api.status.mode.get() end,
           cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+          color = util.ui.fg("Normal"),
+        },
+        -- stylua: ignore
+        {
+          function() return "  " .. require("dap").status() end,
+          cond = function () return package.loaded["dap"] and require("dap").status() ~= "" end,
+          color = util.ui.fg("Debug"),
+        },
+        {
+          require("lazy.status").updates,
+          cond = require("lazy.status").has_updates,
+          color = util.ui.fg("Special"),
         },
       },
     },
