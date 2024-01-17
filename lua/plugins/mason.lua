@@ -3,7 +3,9 @@ return {
   opts = {
     ensure_installed = {
       'prettier',
-      'ansible-lint'
+      'ansible-lint',
+      'black',
+      'ruff',
     },
     ui = {
       icons = {

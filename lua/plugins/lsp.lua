@@ -79,7 +79,10 @@ local config = function()
                         enabled = true,
                         line_length = 79,
                     },
-                    pylsp_mypy = { report_progress = true }
+                    yapf = { enabled = false },
+                    mccabe = { enabled = false },
+                    pycodestyle = { enabled = false },
+                    pyflakes = { enabled = false },
                 }
             }
         },
