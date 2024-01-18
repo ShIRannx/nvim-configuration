@@ -32,7 +32,7 @@ return {
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     opts = {
       symbol = "│",
-      options = { try_as_border = false },
+      options = { try_as_border = true },
       draw = {
         animation = function() return 0 end,
       }
