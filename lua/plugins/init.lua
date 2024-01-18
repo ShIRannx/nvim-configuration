@@ -22,13 +22,6 @@ return {
     },
     { 'j-hui/fidget.nvim', event = "VeryLazy" },
     { 'tpope/vim-sleuth', event = "VeryLazy"}, -- Detect tabstop and shiftwidth automatically
-
-    {
-        "lukas-reineke/indent-blankline.nvim", 
-        event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-        version = "v2.20.8", 
-        opts = { show_current_context = true }
-    },
     { 
         "numToStr/FTerm.nvim",
         event = 'VeryLazy',

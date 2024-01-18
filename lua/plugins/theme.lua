@@ -1,6 +1,6 @@
 local config = function()
   local vscode = require('vscode')
-  local colors = require('vscode.colors').get_colors()
+  local c = require('vscode.colors').get_colors()
   vscode.setup({
     -- Enable transparent background
     transparent = false,
@@ -20,7 +20,18 @@ local config = function()
     group_overrides = {
       -- this supports the same val table as vim.api.nvim_set_hl
       -- use colors from this colorscheme by requiring vscode.colors!
-      Cursor = { fg = colors.vscDarkBlue, bg = colors.vscLightGreen, bold = true },
+      Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
+      -- vim-illuminate
+      illuminatedWord = { bg = c.vscPopupHighlightGray },
+      illuminatedCurWord = { bg = c.vscPopupHighlightGray },
+      IlluminatedWordText = { bg = c.vscPopupHighlightGray },
+      IlluminatedWordRead = { bg = c.vscPopupHighlightGray },
+      IlluminatedWordWrite = { bg = c.vscPopupHighlightGray },
+      --
+      -- mini.indentscope
+      MiniIndentscopeSymbol = { fg = c.vscContextCurrent, bg = 'NONE', nocombine = true },
+      MiniIndentscopeSymboloff = { fg = c.vscContext, bg = 'NONE', nocombine = true },
+      MiniIndentscopePrefix = { nocombine = true },
     }
   })
   vscode.load()
