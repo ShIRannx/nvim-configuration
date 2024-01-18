@@ -37,6 +37,8 @@ local config = {
                 ['ao'] = '@conditional.outer',
                 ['il'] = '@loop.inner',
                 ['al'] = '@loop.outer',
+                ['am'] = '@comment.outer',
+                ['im'] = '@comment.inner'
             }
         }
     }
