@@ -1,42 +1,21 @@
 local config = function() 
     local cmp = require("cmp")
-    local types = require("cmp.types")
-    local luasnip = require("luasnip")
+    local defaults = require("cmp.config.default")()
 
     cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 
-    local function deprioritize_snippet(entry1, entry2)
-        if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then return false end
-        if entry2:get_kind() == types.lsp.CompletionItemKind.Snippet then return true end
-    end
-
     return {
+        completion = { completeopt = "menu,menuone,noinsert" },
         snippet = {
             expand = function(args)
-                luasnip.lsp_expand(args.body)
+                require("luasnip").lsp_expand(args.body)
             end,
         },
-        sorting = {
-            priority_weight = 2,
-            comparators = {
-                deprioritize_snippet,
-                -- the rest of the comparators are pretty much the defaults
-                cmp.config.compare.offset,
-                cmp.config.compare.exact,
-                cmp.config.compare.scopes,
-                cmp.config.compare.score,
-                cmp.config.compare.recently_used,
-                cmp.config.compare.locality,
-                cmp.config.compare.kind,
-                cmp.config.compare.sort_text,
-                cmp.config.compare.length,
-                cmp.config.compare.order,
-            },
-        },
+        sorting = defaults.sorting,
         mapping = cmp.mapping.preset.insert({
             ['<C-b>'] = cmp.mapping.scroll_docs(-4),
             ['<C-f>'] = cmp.mapping.scroll_docs(4),
-            ['<C-e>'] = cmp.mapping.abort(), -- 取消补全，esc也可以退出
+            ['<C-e>'] = cmp.mapping.abort(),
             ['<CR>'] = cmp.mapping.confirm({ select = true }),
             ['<C-j>'] = cmp.mapping(function(fallback)
                 if luasnip.jumpable(1) then

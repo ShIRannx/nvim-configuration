@@ -27,6 +27,9 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 return {
   'nvim-tree/nvim-tree.lua',         
+  keys = {
+    { "<leader>t", ":NvimTreeToggle<CR>" }
+  },
   opts = {
     view = {
       side = 'right',

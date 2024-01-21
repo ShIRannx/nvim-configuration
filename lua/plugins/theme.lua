@@ -27,10 +27,9 @@ local config = function()
       IlluminatedWordText = { bg = c.vscPopupHighlightGray },
       IlluminatedWordRead = { bg = c.vscPopupHighlightGray },
       IlluminatedWordWrite = { bg = c.vscPopupHighlightGray },
-      --
       -- mini.indentscope
       MiniIndentscopeSymbol = { fg = c.vscContextCurrent, bg = 'NONE', nocombine = true },
-      MiniIndentscopeSymboloff = { fg = c.vscContext, bg = 'NONE', nocombine = true },
+      MiniIndentscopeSymboloff = { sp = c.vscContext, bg = 'NONE', nocombine = true },
       MiniIndentscopePrefix = { nocombine = true },
     }
   })

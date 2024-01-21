@@ -63,35 +63,3 @@ keymap.set('i', '<C-a>', '<Esc>I')
 keymap.set('i', '<C-e>', '<Esc>A')
 keymap.set({ 'n', 'v' }, '<C-a>', '0')
 keymap.set({ 'n', 'v' }, '<C-e>', '$')
-
--- ---------- 插件 ---------- ---
--- nvim-tree
-keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>")
-
--- barbar
--- local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
--- Move to previous/next
-keymap.set('n', '<A-h>', '<Cmd>BufferPrevious<CR>', opts)
-keymap.set('n', '<A-l>', '<Cmd>BufferNext<CR>', opts)
--- Re-order to previous/next
-keymap.set('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
-keymap.set('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
--- Goto buffer in position...
-keymap.set('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
-keymap.set('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
-keymap.set('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
-keymap.set('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
-keymap.set('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
-keymap.set('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
-keymap.set('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
-keymap.set('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
-keymap.set('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
-keymap.set('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
--- Pin/unpin buffer
--- keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
--- Close buffer
-keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
--- Magic buffer-picking mode
-keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
-

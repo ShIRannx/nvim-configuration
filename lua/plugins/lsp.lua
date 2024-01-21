@@ -1,7 +1,6 @@
 local config = function()
     local mason_lspconfig = require('mason-lspconfig')
     mason_lspconfig.setup({
-        -- 确保安装，根据需要填写
         ensure_installed = {
             "pylsp",
             "tsserver",
@@ -10,9 +9,8 @@ local config = function()
             "emmet_ls",
             "html",
             "cssls",
-            "yamlls",
             "dockerls",
-            -- "docker_compose_language_service"
+            "docker_compose_language_service"
         },
     })
 
@@ -92,6 +90,7 @@ local config = function()
             } 
         },
         yamlls = {
+            redhat = { telemetry = { enabled = false } },
             yaml = {
                 validate = false,
                 format = { enable = false }
