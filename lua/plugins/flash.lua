@@ -11,7 +11,7 @@ return {
   keys = {
     { '<leader>l', line_select },
     { 's', function() require("flash").jump() end, mode = { 'n', 'x', 'o' } },
-    { 'st', function() require("flash").treesitter() end, mode = { 'n', 'x', 'o' } },
+    { 'S', function() require("flash").treesitter() end, mode = { 'n', 'o' } },
     { "r", function() require("flash").remote() end, desc = "Remote Flash", mode = "o" },
     { "R", function() require("flash").treesitter_search() end, desc = "Treesitter Search", mode = { "o", "x" } },
   },
