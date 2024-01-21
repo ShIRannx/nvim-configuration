@@ -18,7 +18,7 @@ local config = {
         "lua"
     },
     sync_install = false,
-    indent = { enable = true, disable = { "yaml" } },
+    indent = { enable = true },
     highlight = { enable = true },
     textobjects = {
         select = {
