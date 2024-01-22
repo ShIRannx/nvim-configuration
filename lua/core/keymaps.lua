@@ -39,7 +39,7 @@ keymap.set("t", "<Esc>", "<C-\\><C-n>")
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- format
-keymap.set("n", "<A-f>", vim.lsp.buf.format)
+-- keymap.set("n", "<A-f>", vim.lsp.buf.format)
 
 -- 切换buffer
 -- keymap.set("n", "<A-h>", "<C-w>h")
