@@ -139,6 +139,6 @@ return {
             }
         end,
         ft = { "python" },
-        event = "VeryLazy",
+        event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     }
 }
