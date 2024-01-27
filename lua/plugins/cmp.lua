@@ -26,6 +26,16 @@ local config = function()
         default_handler(char, item, bufnr, rules, commit_character)
     end
 
+    local python_handler = cmp_autopairs.filetypes["python"]["("].handler
+    cmp_autopairs.filetypes["python"]["("].handler = function(char, item, bufnr, rules, commit_character)
+        local utils = require('nvim-autopairs.utils')
+        local line = utils.text_get_current_line(bufnr)
+        if line:match("^(from.*import.*)$") then
+            return
+        end
+        python_handler(char, item, bufnr, rules, commit_character)
+    end
+
     cmp.event:on(
         "confirm_done",
         cmp_autopairs.on_confirm_done({
