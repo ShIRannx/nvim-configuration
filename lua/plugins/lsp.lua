@@ -86,8 +86,8 @@ local config = function()
         },
         pyright = {
             python = {
-                analysis = { typeCheckingMode = 'off', diagnosticMode = 'off'}
-            } 
+                analysis = { typeCheckingMode = 'off', diagnosticMode = 'off' }
+            }
         },
         yamlls = {
             redhat = { telemetry = { enabled = false } },
@@ -121,12 +121,11 @@ return {
         dependencies = {
             'folke/neodev.nvim',
             "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
+            {
+                "williamboman/mason-lspconfig.nvim",
+                config = config
+            },
         },
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        config = config
     },
     {
         "nvimtools/none-ls.nvim",
