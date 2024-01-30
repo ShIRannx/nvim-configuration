@@ -7,13 +7,13 @@ return {
     opts = {},
     -- Optional dependencies
     dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-        { 'nvim-tree/nvim-web-devicons', lazy = true },
+      "nvim-treesitter/nvim-treesitter",
+      { 'nvim-tree/nvim-web-devicons', lazy = true },
     },
     keys = {
-        {'<leader>cs', '<cmd>AerialToggle<cr>'},
-        {'{',  '<cmd>AerialPrev<CR>', { buffer = bufnr } },
-        {'}',  '<cmd>AerialNext<CR>', { buffer = bufnr } },
+      { '<leader>cs', '<cmd>AerialToggle<cr>' },
+      { '{',          '<cmd>AerialPrev<CR>',  { buffer = bufnr } },
+      { '}',          '<cmd>AerialNext<CR>',  { buffer = bufnr } },
     }
   },
   {

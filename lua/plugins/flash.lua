@@ -1,18 +1,18 @@
-local line_select = function()
-  require("flash").jump({
-    search = { mode = "search", max_length = 0 },
-    label = { after = { 0, 0 } },
-    pattern = "^"
-  })
-end
-
 return {
   'folke/flash.nvim',
   keys = {
-    { '<leader>l', line_select },
-    { 's', function() require("flash").jump() end, mode = { 'n', 'x', 'o' } },
-    { 'S', function() require("flash").treesitter() end, mode = { 'n', 'o' } },
-    { "r", function() require("flash").remote() end, desc = "Remote Flash", mode = "o" },
+    { '<leader>l',
+      function()
+        require("flash").jump({
+          search = { mode = "search", max_length = 0 },
+          label = { after = { 0, 0 } },
+          pattern = "^"
+        })
+      end
+    },
+    { 's', function() require("flash").jump() end,              mode = { 'n', 'x', 'o' } },
+    { 'S', function() require("flash").treesitter() end,        mode = { 'n', 'o' } },
+    { "r", function() require("flash").remote() end,            desc = "Remote Flash",      mode = "o" },
     { "R", function() require("flash").treesitter_search() end, desc = "Treesitter Search", mode = { "o", "x" } },
   },
   opts = {
