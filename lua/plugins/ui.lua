@@ -23,6 +23,15 @@ return {
         section_separators = '',
       },
       sections = {
+        lualine_z = {
+          function()
+            return " " .. os.date("%R")
+          end,
+        },
+        lualine_y = {
+          { "progress", separator = "|", padding = { left = 1, right = 1 } },
+          { "location", padding = { left = 0, right = 1 } },
+        },
         lualine_x = {
           -- stylua: ignore
           {
@@ -50,19 +59,6 @@ return {
         },
       },
     }
-  },
-  {
-    "RRethy/vim-illuminate",
-    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-    opts = {
-        delay = 200,
-        large_file_overrides = {
-            providers = { "lsp" },
-        },
-    },
-    config = function(_, opts)
-        require("illuminate").configure(opts)
-    end
   },
   {
     "kristijanhusak/vim-dadbod-ui",
