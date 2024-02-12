@@ -9,7 +9,8 @@
     "lazyvim.plugins.extras.lang.python",
     "plugins.extras.lang.ansible",
     "plugins.extras.lang.python",
-    "plugins.extras.lang.sql"
+    "plugins.extras.lang.sql",
+    "plugins.extras.ui.dadbod"
   ],
   "news": {
     "NEWS.md": "2123"
