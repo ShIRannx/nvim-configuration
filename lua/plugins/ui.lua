@@ -1,5 +1,14 @@
 return {
   {
+    "lualine.nvim",
+    opts = {
+      options = {
+        component_separators = "|",
+        section_separators = "",
+      },
+    },
+  },
+  {
     "bufferline.nvim",
     keys = {
       { "<A-l>", "<cmd>BufferLineCycleNext<cr>" },
