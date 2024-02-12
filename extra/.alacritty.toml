@@ -1,30 +1,20 @@
-[colors.bright]
-black = "#545454"
-blue = "#569cd6"
-cyan = "#56b6c2"
-green = "#608b4e"
-magenta = "#c678dd"
-red = "#f44747"
-white = "#d4d4d4"
-yellow = "#dcdcaa"
+# Colors (One Dark)
 
-[colors.cursor]
-cursor = "#d4d4d4"
-text = "#d4d4d4"
-
-[colors.normal]
-black = "#1e1e1e"
-blue = "#569cd6"
-cyan = "#56b6c2"
-green = "#608b4e"
-magenta = "#c678dd"
-red = "#f44747"
-white = "#d4d4d4"
-yellow = "#dcdcaa"
-
+# Default colors
 [colors.primary]
-background = "#1e1e1e"
-foreground = "#d4d4d4"
+background = '#232326'
+foreground = '#a7aab0'
+
+# Normal colors
+[colors.normal]
+black   = '#101012'
+red     = '#de5d68'
+green   = '#8fb573'
+yellow  = '#dbb671'
+blue    = '#57a5e5'
+magenta = '#bb70d2'
+cyan    = '#51a8b3'
+white   = '#a7aab0'
 
 [env]
 TERM = "xterm-256color"
@@ -33,8 +23,9 @@ TERM = "xterm-256color"
 size = 28
 
 [font.normal]
-family = "agave Nerd Font Mono"
-style = "r"
+family = "Agave Nerd Font Mono"
+style = "Regular"
+
 [keyboard]
 bindings = [
   {key="T", mods="Command", action="CreateNewTab"},
@@ -53,11 +44,6 @@ bindings = [
 ]
 
 [window]
-dynamic_padding = false
 opacity = 1
+dynamic_padding = true
 option_as_alt = "Both"
-startup_mode = "SimpleFullscreen"
-
-[window.padding]
-x = 0
-y = 0
