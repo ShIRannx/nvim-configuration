@@ -1,5 +1,9 @@
 return {
   {
+    "tokyonight.nvim",
+    enabled = false,
+  },
+  {
     "navarasu/onedark.nvim",
     opts = {
       style = "warmer",
