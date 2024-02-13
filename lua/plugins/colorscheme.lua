@@ -3,12 +3,15 @@ return {
     "navarasu/onedark.nvim",
     opts = {
       style = "warmer",
+      colors = {
+        illuminate = "#3b3f4c",
+      },
       highlights = {
-        illuminatedWord = { bg = "$bg2" },
-        illuminatedCurWord = { bg = "$bg2" },
-        IlluminatedWordText = { bg = "$bg2" },
-        IlluminatedWordRead = { bg = "$bg2" },
-        IlluminatedWordWrite = { bg = "$bg2" },
+        illuminatedWord = { bg = "$illuminate" },
+        illuminatedCurWord = { bg = "$illuminate" },
+        IlluminatedWordText = { bg = "$illuminate" },
+        IlluminatedWordRead = { bg = "$illuminate" },
+        IlluminatedWordWrite = { bg = "$illuminate" },
 
         DiagnosticVirtualTextError = { fg = "$red" },
         DiagnosticVirtualTextWarn = { fg = "$yellow" },
