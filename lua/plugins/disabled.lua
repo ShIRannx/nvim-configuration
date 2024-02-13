@@ -11,4 +11,8 @@ return {
     "catppuccin",
     enabled = false,
   },
+  {
+    "tokyonight.nvim",
+    enabled = false,
+  },
 }
