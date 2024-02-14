@@ -222,7 +222,6 @@ return {
         },
         hint_diagnostic_selected = {
           fg = { attribute = "fg", highlight = "DiagnosticSignHint" },
-
           bg = { attribute = "bg", highlight = "StatusLine" },
         },
       },
