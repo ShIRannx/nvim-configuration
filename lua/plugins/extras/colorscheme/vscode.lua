@@ -29,9 +29,9 @@ return {
           NeoTreeGitConflict = { fg = c.vscGitConflicting },
           NeoTreeGitUntracked = { link = "NvimTreeGitMerge" },
 
-          MiniIndentscopeSymbol = { fg = c.vscCursorLight },
           MiniIndentscopePrefix = { nocombine = true },
           MiniIndentscopeSymboloff = { link = "IndentBlanklineChar" },
+          MiniIndentscopeSymbol = { link = "IndentBlanklineContextChar" },
         },
       }
     end,
@@ -70,7 +70,7 @@ return {
         },
         buffer_visible = {
           fg = { attribute = "fg", highlight = "Normal" },
-          bg = { attribute = "bg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
         },
         buffer_selected = {
           fg = { attribute = "fg", highlight = "Normal" },
@@ -82,7 +82,7 @@ return {
         },
         duplicate_visible = {
           fg = { attribute = "fg", highlight = "Normal" },
-          bg = { attribute = "bg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
         },
         duplicate = {
           fg = { attribute = "fg", highlight = "Normal" },
@@ -95,6 +95,10 @@ return {
         separator_selected = {
           fg = { attribute = "fg", highlight = "Special" },
           bg = { attribute = "bg", highlight = "Normal" },
+        },
+        indicator_visible = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
         },
         separator_visible = {
           fg = { attribute = "fg", highlight = "Normal" },
@@ -126,9 +130,99 @@ return {
         },
         close_button_visible = {
           fg = { attribute = "fg", highlight = "Normal" },
-          bg = { attribute = "bg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
         },
         modified = {
+          fg = { attribute = "fg", highlight = "NeoTreeGitModified" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        modified_visible = {
+          fg = { attribute = "fg", highlight = "NeoTreeGitModified" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        modified_selected = {
+          fg = { attribute = "fg", highlight = "NeoTreeGitModified" },
+          bg = { attribute = "bg", highlight = "Normal" },
+        },
+        warning = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        warning_visible = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        warning_selected = {
+          fg = { attribute = "fg", highlight = "DiagnosticSignWarn" },
+          bg = { attribute = "bg", highlight = "Normal" },
+        },
+        warning_diagnostic = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        warning_diagnostic_visible = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        error = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        error_visible = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        error_diagnostic = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        error_diagnostic_visible = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        error_selected = {
+          fg = { attribute = "fg", highlight = "DiagnosticSignError" },
+          bg = { attribute = "bg", highlight = "Normal" },
+        },
+        info = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        info_visible = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        info_diagnostic = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        info_diagnostic_visible = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        info_selected = {
+          fg = { attribute = "fg", highlight = "DiagnosticSignInfo" },
+          bg = { attribute = "bg", highlight = "Normal" },
+        },
+        hint = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        hint_visible = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        hint_selected = {
+          fg = { attribute = "fg", highlight = "DiagnosticSignHint" },
+          bg = { attribute = "bg", highlight = "Normal" },
+        },
+        hint_diagnostic = {
+          fg = { attribute = "fg", highlight = "Normal" },
+          bg = { attribute = "bg", highlight = "StatusLine" },
+        },
+        hint_diagnostic_selected = {
+          fg = { attribute = "fg", highlight = "DiagnosticSignHint" },
+
           bg = { attribute = "bg", highlight = "StatusLine" },
         },
       },
