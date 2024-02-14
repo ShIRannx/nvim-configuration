@@ -11,9 +11,6 @@ return {
     "mg979/vim-visual-multi",
     event = "LazyFile",
     branch = "master",
-    config = function()
-      vim.g.VM_maps = { ["I BS"] = "<C-h>" }
-    end,
   },
   {
     "hrsh7th/nvim-cmp",
