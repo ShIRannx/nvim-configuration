@@ -4,10 +4,6 @@ return {
     enabled = false,
   },
   {
-    "mini.ai",
-    enabled = false,
-  },
-  {
     "catppuccin",
     enabled = false,
   },
