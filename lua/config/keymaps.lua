@@ -18,6 +18,8 @@ map("i", "<C-s>", "<Esc>:w<cr>")
 
 map("n", "<C-q>", "<cmd>qa!<cr>")
 
+map("n", "<leader>nh", "<cmd>nohl<cr>")
+
 local umap = vim.keymap.del
 umap("n", "<S-h>")
 umap("n", "<S-l>")
