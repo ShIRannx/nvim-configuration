@@ -1,7 +1,7 @@
 return {
   {
     "nvim-treesitter",
-    init = function()
+    config = function()
       vim.treesitter.language.register("yaml", "yaml.ansible")
     end,
     opts = {
