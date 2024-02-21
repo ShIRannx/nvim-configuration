@@ -3,8 +3,14 @@ return {
     "kylechui/nvim-surround",
     version = "*", -- for stability; omit to use `main` branch for the latest features
     event = "LazyFile",
-    config = function()
-      require("nvim-surround").setup()
+    opts = {
+      aliases = {
+        ["d"] = '"',
+        ["s"] = "'",
+      },
+    },
+    config = function(_, opts)
+      require("nvim-surround").setup(opts)
     end,
   },
   {
