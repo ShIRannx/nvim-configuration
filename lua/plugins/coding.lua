@@ -179,4 +179,12 @@ return {
       end
     end,
   },
+  {
+    "mini.ai",
+    opts = {
+      custom_textobjects = {
+        ["r"] = { { "%b[]" }, "^.().*().$" },
+      },
+    },
+  },
 }
