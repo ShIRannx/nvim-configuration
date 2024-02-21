@@ -21,4 +21,5 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
   },
+  { import = "lazyvim.plugins.extras.lang.python" },
 }
