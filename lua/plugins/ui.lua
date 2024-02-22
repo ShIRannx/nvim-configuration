@@ -14,6 +14,11 @@ return {
       { "<A-l>", "<cmd>BufferLineCycleNext<cr>" },
       { "<A-h>", "<cmd>BufferLineCyclePrev<cr>" },
     },
+    opts = {
+      options = {
+        show_close_icon = false,
+      },
+    },
   },
   {
     "noice.nvim",
