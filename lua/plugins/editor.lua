@@ -68,7 +68,10 @@ return {
     },
     opts = {
       search = { multi_window = false },
-      modes = { search = { enabled = false } },
+      modes = {
+        search = { enabled = false },
+        char = { enabled = false },
+      },
     },
   },
 }
