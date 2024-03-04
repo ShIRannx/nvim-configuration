@@ -66,7 +66,7 @@ return {
 
           if ls.choice_active() then
             ls.change_choice(1)
-          else
+          elseif ls.jumpable(-1) then
             _G.dynamic_node_external_update(1)
           end
         end,
@@ -79,7 +79,7 @@ return {
 
           if ls.choice_active(-1) then
             ls.change_choice(-1)
-          else
+          elseif ls.jumpable(-1) then
             _G.dynamic_node_external_update(2)
           end
         end,
