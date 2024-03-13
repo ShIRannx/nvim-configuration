@@ -1,20 +1,5 @@
 return {
   {
-    "kylechui/nvim-surround",
-    version = "*", -- for stability; omit to use `main` branch for the latest features
-    event = "LazyFile",
-    opts = {
-      aliases = {
-        ["d"] = '"',
-        ["s"] = "'",
-        ["u"] = { "}", "]", ")", ">", '"', "'", "`" },
-      },
-    },
-    config = function(_, opts)
-      require("nvim-surround").setup(opts)
-    end,
-  },
-  {
     "mg979/vim-visual-multi",
     event = "LazyFile",
     branch = "master",
@@ -194,6 +179,36 @@ return {
         ["d"] = { { '%b""' }, "^.().*().$" },
         ["s"] = { { "%b''" }, "^.().*().$" },
         ["u"] = { { "%b''", '%b""', "%b``", "%b()", "%b[]", "%b{}", "%b<>" }, "^.().*().$" },
+      },
+    },
+  },
+  {
+    "mini.surround",
+    opts = {
+      custom_surroundings = {
+        ["b"] = { input = { { "%b()" }, "^.().*().$" }, output = { left = "(", right = ")" } },
+        ["d"] = { input = { { '".-"' }, "^.().*().$" }, output = { left = '"', right = '"' } },
+        ["s"] = { input = { { "'.-'" }, "^.().*().$" }, output = { left = "'", right = "'" } },
+        ["r"] = { input = { { "%b[]" }, "^.().*().$" }, output = { left = "[", right = "]" } },
+        ["B"] = { input = { { "%b{}" }, "^.().*().$" }, output = { left = "{", right = "}" } },
+        ["u"] = {
+          input = { { "%b{}", "%b()", "%b[]", "%b<>", '".-"', "'.-'", "`.-`" }, "^.().*().$" },
+        },
+      },
+      silent = true,
+      mappings = {
+        add = "ys",
+        delete = "ds",
+        replace = "cs",
+        update_n_lines = "",
+
+        find = "fs",
+        find_left = "fS",
+
+        highlight = "",
+
+        suffix_last = "l",
+        suffix_next = "n",
       },
     },
   },
