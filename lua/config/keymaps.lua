@@ -10,7 +10,7 @@ map("v", "<A-K>", ":t '><CR>gv=gv")
 
 map("i", "<C-a>", "<Esc>I")
 map("i", "<C-e>", "<Esc>A")
-map({ "n", "v" }, "<C-a>", "0")
+map({ "n", "v" }, "<C-a>", "^")
 map({ "n", "v" }, "<C-e>", "$")
 
 map("n", "<C-s>", "<cmd>w<cr>")
