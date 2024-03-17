@@ -11,8 +11,10 @@ return {
   {
     "bufferline.nvim",
     keys = {
-      { "<A-l>", "<cmd>BufferLineCycleNext<cr>" },
-      { "<A-h>", "<cmd>BufferLineCyclePrev<cr>" },
+      { "<S-h>", false },
+      { "<S-l>", false },
+      { "<A-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+      { "<A-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
     },
     opts = {
       options = {
