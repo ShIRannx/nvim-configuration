@@ -56,13 +56,7 @@ return {
   {
     "flash.nvim",
     keys = {
-      {
-        "S",
-        function()
-          require("flash").treesitter()
-        end,
-        mode = { "n", "o" },
-      },
+      { "S", mode = "x", false },
     },
     opts = {
       search = { multi_window = false },
