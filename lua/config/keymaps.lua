@@ -24,3 +24,4 @@ local umap = vim.keymap.del
 umap("n", "<S-h>")
 umap("n", "<S-l>")
 umap("t", "<C-h>")
+umap("t", "<C-l>")
