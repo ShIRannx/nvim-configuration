@@ -1,18 +1,24 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.coding.copilot",
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.aerial",
     "lazyvim.plugins.extras.formatting.black",
     "lazyvim.plugins.extras.formatting.prettier",
     "lazyvim.plugins.extras.lang.docker",
+    "lazyvim.plugins.extras.lang.go",
     "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.test.core",
+    "plugins.extras.lang.angular",
+    "plugins.extras.lang.ansible",
+    "plugins.extras.lang.groovy",
+    "plugins.extras.lang.markdown",
+    "plugins.extras.lang.python",
     "plugins.extras.lang.sql",
     "plugins.extras.ui.dadbod"
   ],
   "news": {
-    "NEWS.md": "2590"
+    "NEWS.md": "3314"
   },
   "version": 3
 }
-
