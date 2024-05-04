@@ -13,7 +13,6 @@
     "plugins.extras.lang.ansible",
     "plugins.extras.lang.groovy",
     "plugins.extras.lang.markdown",
-    "plugins.extras.lang.python",
     "plugins.extras.lang.sql",
     "plugins.extras.ui.dadbod"
   ],
