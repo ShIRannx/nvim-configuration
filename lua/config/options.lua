@@ -8,3 +8,4 @@ vim.g.VM_maps = {
   ["Select Cursor Down"] = "<S-j>",
 }
 vim.g.lazyvim_python_lsp = "jedi_language_server"
+vim.g.lazyvim_python_ruff = "ruff"
