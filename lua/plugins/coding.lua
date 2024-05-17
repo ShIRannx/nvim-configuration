@@ -54,7 +54,6 @@ return {
           end
         end, { "i", "s" }),
       })
-      opts.auto_brackets = {}
     end,
   },
   {
