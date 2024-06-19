@@ -23,9 +23,6 @@ return {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      local feedkey = function(key, mode)
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-      end
       local has_words_before = function()
         unpack = unpack or table.unpack
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -39,7 +36,9 @@ return {
           if cmp.visible() then
             cmp.confirm({ select = true })
           elseif vim.snippet.active({ direction = 1 }) then
-            feedkey("<cmd>lua vim.snippet.jump(1)<CR>", "")
+            vim.schedule(function()
+              vim.snippet.jump(1)
+            end)
           elseif has_words_before() then
             cmp.complete()
           else
@@ -50,7 +49,9 @@ return {
           if cmp.visible() then
             cmp.select_prev_item()
           elseif vim.snippet.active({ direction = -1 }) then
-            feedkey("<cmd>lua vim.snippet.jump(-1)<CR>", "")
+            vim.schedule(function()
+              vim.snippet.jump(-1)
+            end)
           else
             fallback()
           end
