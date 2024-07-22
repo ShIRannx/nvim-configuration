@@ -57,6 +57,13 @@ return {
           end
         end, { "i", "s" }),
       })
+
+      -- remove auto_brackets for python
+      for i, lang in ipairs(opts.auto_brackets) do
+        if lang == "python" then
+          table.remove(opts.auto_brackets, i)
+        end
+      end
     end,
   },
   -- {
