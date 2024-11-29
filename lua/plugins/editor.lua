@@ -47,13 +47,6 @@ return {
     end,
   },
   {
-    "vim-illuminate",
-    opts = {
-      modes_denylist = { "t" },
-      filetypes_denylist = { "aerial", "mason" },
-    },
-  },
-  {
     "flash.nvim",
     keys = {
       { "S", mode = "x", false },
