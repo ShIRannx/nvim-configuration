@@ -9,3 +9,4 @@ vim.g.VM_maps = {
 }
 vim.g.lazyvim_python_lsp = "jedi_language_server"
 vim.g.lazyvim_python_ruff = "ruff"
+vim.g.snacks_animate = false
