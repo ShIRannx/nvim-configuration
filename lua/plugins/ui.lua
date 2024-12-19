@@ -37,12 +37,4 @@ return {
       },
     },
   },
-  {
-    "indent-blankline.nvim",
-    opts = {
-      exclude = {
-        filetypes = { "aerial" },
-      },
-    },
-  },
 }
