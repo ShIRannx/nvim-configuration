@@ -62,6 +62,9 @@ return {
   {
     "folke/snacks.nvim",
     opts = { scroll = { enabled = false } },
+    keys = {
+      { "<leader>n", false },
+    },
   },
   {
     "saghen/blink.cmp",
