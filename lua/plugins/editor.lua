@@ -61,7 +61,19 @@ return {
   },
   {
     "folke/snacks.nvim",
-    opts = { scroll = { enabled = false } },
+    opts = {
+      scroll = { enabled = false },
+      picker = {
+        win = {
+          input = {
+            keys = {
+              ["<c-a>"] = false,
+              ["<c-m>"] = { "confirm", mode = { "n", "i" } },
+            },
+          },
+        },
+      },
+    },
     keys = {
       { "<leader>n", false },
     },
