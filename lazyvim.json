@@ -1,7 +1,6 @@
 {
   "extras": [
     "lazyvim.plugins.extras.dap.core",
-    "lazyvim.plugins.extras.editor.snacks_picker",
     "lazyvim.plugins.extras.formatting.prettier",
     "lazyvim.plugins.extras.lang.docker",
     "lazyvim.plugins.extras.lang.python",
@@ -16,7 +15,6 @@
     "plugins.extras.lang.groovy",
     "plugins.extras.lang.markdown"
   ],
-  "install_version": 7,
   "news": {
     "NEWS.md": "10960"
   },
