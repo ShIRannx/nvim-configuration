@@ -8,8 +8,9 @@ return {
       provider = "openai",
       -- auto_suggestions_provider = "openai", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
       openai = {
-        endpoint = "https://api.deepseek.com/v1",
-        model = "deepseek-chat",
+        -- endpoint = "https://api.deepseek.com/v1",
+        endpoint = "https://ark.cn-beijing.volces.com/api/v3",
+        model = "deepseek-v3-250324",
         timeout = 30000, -- Timeout in milliseconds
         temperature = 0,
         max_tokens = 4096,

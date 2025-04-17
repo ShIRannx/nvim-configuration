@@ -13,6 +13,7 @@
     "lazyvim.plugins.extras.ui.treesitter-context",
     "lazyvim.plugins.extras.util.rest",
     "plugins.extras.ai.avante",
+    "plugins.extras.ai.minuet",
     "plugins.extras.editor.undotree",
     "plugins.extras.lang.groovy",
     "plugins.extras.lang.markdown"
