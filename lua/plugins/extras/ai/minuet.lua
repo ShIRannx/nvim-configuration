@@ -1,6 +1,7 @@
 return {
   {
     "milanglacier/minuet-ai.nvim",
+    lazy = true,
     config = function()
       require("minuet").setup({
         -- Your configuration options here
