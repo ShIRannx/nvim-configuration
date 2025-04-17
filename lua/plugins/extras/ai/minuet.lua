@@ -20,20 +20,23 @@ return {
       })
     end,
   },
-  { "nvim-lua/plenary.nvim" },
+  { "nvim-lua/plenary.nvim", optional = true },
   -- optional, if you are using virtual-text frontend, nvim-cmp is not
   -- required.
-  { "hrsh7th/nvim-cmp" },
+  { "hrsh7th/nvim-cmp", optional = true },
   -- optional, if you are using virtual-text frontend, blink is not required.
   {
     "Saghen/blink.cmp",
-    opts = function(_, opts)
-      opts.keymap = vim.tbl_extend("force", opts.keymap or {}, {
-        -- Manually invoke minuet completion.
-        ["<A-y>"] = require("minuet").make_blink_map(),
-      })
-
-      opts.sources = vim.tbl_extend("force", opts.sources or {}, {
+    opts = {
+      keymap = {
+        ["<A-y>"] = {
+          function()
+            require("minuet").make_blink_map()
+          end,
+          "fallback",
+        },
+      },
+      sources = {
         -- Enable minuet for autocomplete
         default = { "lsp", "path", "buffer", "snippets", "minuet" },
         -- For manual completion only, remove 'minuet' from default
@@ -48,13 +51,9 @@ return {
             score_offset = 50, -- Gives minuet higher priority among suggestions
           },
         },
-      })
-
+      },
       -- Recommended to avoid unnecessary request
-      opts.completion = vim.tbl_extend("force", opts.completion or {}, {
-        trigger = { prefetch_on_insert = false },
-      })
-      return opts
-    end,
+      completion = { trigger = { prefetch_on_insert = false } },
+    },
   },
 }
