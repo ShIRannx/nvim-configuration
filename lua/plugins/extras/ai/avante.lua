@@ -1,7 +1,7 @@
 return {
   {
     "yetone/avante.nvim",
-    lazy = true,
+    event = "VeryLazy",
     version = false, -- set this if you want to always pull the latest change
     opts = {
       provider = "openai",
@@ -12,7 +12,7 @@ return {
         model = "deepseek-v3-250324",
         timeout = 30000, -- Timeout in milliseconds
         temperature = 0,
-        max_tokens = 4096,
+        max_tokens = 16384,
         -- optional
         api_key_name = "OPENAI_API_KEY", -- default OPENAI_API_KEY if not set
       },
