@@ -4,24 +4,21 @@ return {
     event = "VeryLazy",
     version = false, -- set this if you want to always pull the latest change
     opts = {
+      providers = {
+        openai = {
+          -- endpoint = "https://api.deepseek.com/v1",
+          endpoint = "https://ark.cn-beijing.volces.com/api/v3",
+          model = "deepseek-v3-250324",
+          timeout = 30000, -- Timeout in milliseconds
+          extra_request_body = {
+            temperature = 0,
+          },
+          max_tokens = 16384,
+          -- optional
+          api_key_name = "OPENAI_API_KEY", -- default OPENAI_API_KEY if not set
+        },
+      },
       provider = "openai",
-      -- auto_suggestions_provider = "openai", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
-      openai = {
-        -- endpoint = "https://api.deepseek.com/v1",
-        endpoint = "https://ark.cn-beijing.volces.com/api/v3",
-        model = "deepseek-v3-250324",
-        timeout = 30000, -- Timeout in milliseconds
-        temperature = 0,
-        max_tokens = 16384,
-        -- optional
-        api_key_name = "OPENAI_API_KEY", -- default OPENAI_API_KEY if not set
-      },
-      claude = {
-        endpoint = "https://api.anthropic.com",
-        model = "claude-3-5-sonnet-20241022",
-        temperature = 0,
-        max_tokens = 4096,
-      },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
