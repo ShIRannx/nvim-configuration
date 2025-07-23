@@ -1,6 +1,7 @@
 return {
   {
     "neo-tree.nvim",
+    optional = true,
     opts = function(_, opts)
       local renderer = require("neo-tree.ui.renderer")
       local getSiblings = function(state, node)
@@ -107,9 +108,10 @@ return {
         ["<C-b>"] = { "scroll_documentation_up", "fallback" },
         ["<C-f>"] = { "scroll_documentation_down", "fallback" },
       },
+      fuzzy = { implementation = "lua" },
       completion = {
         trigger = {
-          show_in_snippet = true,
+          show_in_snippet = false,
         },
       },
     },

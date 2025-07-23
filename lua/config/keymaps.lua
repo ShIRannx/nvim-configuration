@@ -13,6 +13,9 @@ map("i", "<C-e>", "<Esc>A")
 map({ "n", "v" }, "<C-a>", "^")
 map({ "n", "v" }, "<C-e>", "$")
 
+map({ "n", "v" }, "j", "gj")
+map({ "n", "v" }, "k", "gk")
+
 map("n", "<C-s>", "<cmd>w<cr>")
 map("i", "<C-s>", "<Esc>:w<cr>")
 
