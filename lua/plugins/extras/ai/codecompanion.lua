@@ -8,13 +8,13 @@ return {
     opts = {
       strategies = {
         chat = {
-          adapter = "volcengine",
+          adapter = "qwen",
         },
         inline = {
-          adapter = "volcengine",
+          adapter = "qwen",
         },
         cmd = {
-          adapter = "volcengine",
+          adapter = "qwen",
         },
       },
       adapters = {
@@ -28,6 +28,20 @@ return {
             schema = {
               model = {
                 default = "deepseek-v3-250324", -- define llm model to be used
+              },
+            },
+          })
+        end,
+        qwen = function()
+          return require("codecompanion.adapters").extend("openai_compatible", {
+            env = {
+              url = "https://dashscope.aliyuncs.com/compatible-mode", -- optional: default value is ollama url http://127.0.0.1:11434
+              api_key = "QWEN_API_KEY", -- optional: if your endpoint is authenticated
+              chat_url = "/v1/chat/completions", -- optional: default value, override if different
+            },
+            schema = {
+              model = {
+                default = "qwen3-coder-plus-2025-07-22", -- define llm model to be used
               },
             },
           })
