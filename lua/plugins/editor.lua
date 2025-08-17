@@ -111,7 +111,7 @@ return {
       fuzzy = { implementation = "lua" },
       completion = {
         trigger = {
-          show_in_snippet = false,
+          show_in_snippet = true,
         },
       },
     },

@@ -48,4 +48,29 @@ return {
     },
     completion = { trigger = { prefetch_on_insert = false } },
   },
+  {
+    "lualine.nvim",
+    optional = true,
+    opts = function(_, opts)
+      if not opts.sections then
+        opts.sections = opts.sections or {}
+      end
+      if not opts.sections.lualine_x then
+        opts.sections.lualine_x = opts.sections.lualine_x or {}
+      end
+
+      table.insert(opts.sections.lualine_x, {
+        require("minuet.lualine"),
+        -- the follwing is the default configuration
+        -- the name displayed in the lualine. Set to "provider", "model" or "both"
+        display_name = "provider",
+        -- separator between provider and model name for option "both"
+        -- provider_model_separator = ':',
+        -- whether show display_name when no completion requests are active
+        -- display_on_idle = false,
+      })
+
+      return opts
+    end,
+  },
 }
