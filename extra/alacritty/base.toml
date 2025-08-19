@@ -1,31 +1,3 @@
-[colors.bright]
-black = "#545454"
-blue = "#569cd6"
-cyan = "#56b6c2"
-green = "#608b4e"
-magenta = "#c678dd"
-red = "#f44747"
-white = "#d4d4d4"
-yellow = "#dcdcaa"
-
-[colors.cursor]
-cursor = "#d4d4d4"
-text = "#d4d4d4"
-
-[colors.normal]
-black = "#1e1e1e"
-blue = "#569cd6"
-cyan = "#56b6c2"
-green = "#608b4e"
-magenta = "#c678dd"
-red = "#f44747"
-white = "#d4d4d4"
-yellow = "#dcdcaa"
-
-[colors.primary]
-background = "#1e1e1e"
-foreground = "#d4d4d4"
-
 [env]
 TERM = "xterm-256color"
 
@@ -33,8 +5,8 @@ TERM = "xterm-256color"
 size = 28
 
 [font.normal]
-family = "agave Nerd Font Mono"
-style = "r"
+family = "Agave Nerd Font Mono"
+style = "Regular"
 [keyboard]
 bindings = [
   {key="T", mods="Command", action="CreateNewTab"},
@@ -50,14 +22,10 @@ bindings = [
   {key="/", action="SearchBackward", mode="vi"},
   {key="g", mods="Command", action="SearchFocusPrevious", mode="vi"},
   {key="g", mods="Command|Shift", action="SearchFocusNext", mode="vi"},
+  {key="y",  action="Copy", mode="vi"},
 ]
 
 [window]
-dynamic_padding = false
+dynamic_padding = true
 opacity = 1
 option_as_alt = "Both"
-startup_mode = "SimpleFullscreen"
-
-[window.padding]
-x = 0
-y = 0

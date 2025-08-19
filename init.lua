@@ -1,26 +1,2 @@
-require("plugins.plugins-setup")
-
-require("core.options")
-require("core.keymaps")
-
--- 插件
-require("plugins/theme")
-require("plugins/lualine")
-require("plugins/nvim-tree")
-require("plugins/treesitter")
-require("plugins/lsp")
-require("plugins/cmp")
-require("plugins/comment")
-require("plugins/autopairs")
-require("plugins/gitsigns")
-require("plugins/telescope")
-require("plugins/null-ls")
-require("plugins/aerial")
-require("plugins/noice")
-require("plugins/flash")
-require("plugins/fidget")
-require("plugins/indent-blankline")
-require("plugins/nvim-dap-python")
-require("plugins/nvim-dap-ui")
-require("plugins/luasnip")
-require("plugins/nvim-surround")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
