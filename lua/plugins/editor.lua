@@ -85,9 +85,6 @@ return {
     version = "*",
     opts = {
       keymap = {
-        ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-        ["<C-e>"] = { "hide", "fallback" },
-
         ["<Tab>"] = {
           function(cmp)
             if cmp.snippet_active() then
