@@ -64,6 +64,7 @@ return {
     "folke/snacks.nvim",
     opts = {
       scroll = { enabled = false },
+      terminal = { win = { keys = { nav_h = false } } },
       picker = {
         win = {
           input = {
