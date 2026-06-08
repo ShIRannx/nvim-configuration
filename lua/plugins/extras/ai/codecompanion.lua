@@ -6,65 +6,29 @@ return {
       { "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>", mode = { "n", "v" } },
     },
     opts = {
-      prompt_library = {
-        ["Edit<->Test workflow"] = {
-          strategy = "workflow",
-          description = "Use a workflow to repeatedly edit then test code",
-          opts = {
-            index = 5,
-            is_default = true,
-            short_name = "et",
-          },
-          prompts = {
-            {
-              {
-                name = "Setup Test",
-                role = "user",
-                opts = { auto_submit = false },
-                content = function()
-                  -- Leverage YOLO mode which disables the requirement of approvals and automatically saves any edited buffer
-                  local approvals = require("codecompanion.interactions.chat.tools.approvals")
-                  approvals:toggle_yolo_mode()
-
-                  return [[### Instructions
-
-Your instructions here
-
-### Steps to Follow
-
-You are required to write code following the instructions provided above and test the correctness by running the designated test suite. Follow these steps exactly:
-
-1. Update the code in #{buffer} using the @{insert_edit_into_file} tool
-2. Then use the @{run_command} tool to run the test suite with `<test_cmd>` (do this after you have updated the code)
-3. Make sure you trigger both tools in the same response
-
-We'll repeat this cycle until the tests pass. Ensure no deviations from these steps.]]
-                end,
-              },
+      interactions = {
+        cli = {
+          agent = "codex",
+          agents = {
+            claude_code = {
+              cmd = "claude",
+              args = {},
+              description = "Claude Code CLI",
             },
-            {
-              {
-                name = "Repeat On Failure",
-                role = "user",
-                opts = { auto_submit = true },
-                -- Scope this prompt to the run_command tool
-                condition = function()
-                  return _G.codecompanion_current_tool == "run_command"
-                end,
-                -- Repeat until the tests pass, as indicated by the testing flag
-                -- which the run_command tool sets on the chat buffer
-                repeat_until = function(chat)
-                  return chat.tool_registry.flags.testing == true
-                end,
-                content = "The tests have failed. Can you edit the buffer and run the test suite again?",
-              },
+            gemini = {
+              cmd = "gemini",
+              args = {},
+              description = "Gemini Code CLI",
+            },
+            codex = {
+              cmd = "codex",
+              args = {},
+              description = "OpenAI Codex CLI",
             },
           },
         },
-      },
-      interactions = {
         chat = {
-          adapter = "openrouter",
+          adapter = "codex",
           keymaps = {
             close = {
               modes = { n = "gq", i = "gq" },
@@ -74,14 +38,66 @@ We'll repeat this cycle until the tests pass. Ensure no deviations from these st
           },
         },
         inline = {
-          adapter = "openrouter",
+          adapter = "codex",
         },
         cmd = {
-          adapter = "openrouter",
+          adapter = "codex",
         },
       },
       adapters = {
+        acp = {
+          gemini = function()
+            return require("codecompanion.adapters").extend("gemini_cli", {
+              defaults = {
+                auth_method = "gemini-api-key", -- "oauth-personal"|"gemini-api-key"|"vertex-ai"
+              },
+              env = {
+                GEMINI_API_KEY = "",
+              },
+            })
+          end,
+          codex = function()
+            return require("codecompanion.adapters").extend("codex", {
+              defaults = {
+                auth_method = "chatgpt", -- "openai-api-key"|"codex-api-key"|"chatgpt"
+              },
+            })
+          end,
+        },
         http = {
+          dashscope = function()
+            return require("codecompanion.adapters").extend("openai_compatible", {
+              env = {
+                url = "https://coding.dashscope.aliyuncs.com",
+                api_key = "DASHSCOPE_API_KEY",
+                chat_url = "/v1/chat/completions", -- optional: default value, override if differen0
+              },
+              schema = {
+                model = {
+                  default = "qwen3-coder-plus",
+                  choices = {
+                    ["glm-5"] = {},
+                    ["qwen3.5-plus"] = {},
+                    ["qwen3-coder-plus"] = {},
+                  },
+                },
+              },
+            })
+          end,
+          wangsu = function()
+            return require("codecompanion.adapters").extend("openai_compatible", {
+              env = {
+                url = "https://aigateway.edgecloudapp.com", -- optional: default value is ollama url http://127.0.0.1:11434
+                api_key = "WANGSU_API_KEY", -- optional: if your endpoint is authenticated
+                chat_url = "/v1/dd49a827f86db98f499afcb77642ca6b/aicenter_gpt_chat", -- optional: default value, override if different
+              },
+              schema = {
+                model = {
+                  default = "gpt-5.3-codex", -- define llm model to be used
+                },
+              },
+            })
+          end,
           openrouter = function()
             return require("codecompanion.adapters").extend("openai_compatible", {
               env = {
@@ -98,10 +114,25 @@ We'll repeat this cycle until the tests pass. Ensure no deviations from these st
           end,
         },
       },
+      extensions = {
+        history = {
+          enabled = true,
+        },
+        agentskills = {
+          opts = {
+            paths = {
+              { "~/.claude/skills" },
+              { "~/.codex/skills" },
+            },
+          },
+        },
+      },
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      "cairijun/codecompanion-agentskills.nvim",
+      "ravitemer/codecompanion-history.nvim",
     },
   },
   {
