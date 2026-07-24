@@ -81,6 +81,28 @@ return {
     },
   },
   {
+    "kulala.nvim",
+    optional = true,
+    opts = {
+      kulala_keymaps = {
+        ["Previous tab"] = {
+          "<A-h>",
+          function()
+            require("kulala.ui").show_previous_tab()
+          end,
+          mode = { "n" },
+        },
+        ["Next tab"] = {
+          "<A-l>",
+          function()
+            require("kulala.ui").show_next_tab()
+          end,
+          mode = { "n" },
+        },
+      },
+    },
+  },
+  {
     "saghen/blink.cmp",
     optional = true,
     version = "*",
